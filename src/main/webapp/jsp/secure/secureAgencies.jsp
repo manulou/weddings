@@ -13,7 +13,7 @@
 			</tr>
 			<tr data-ng-repeat="agency in agencies.list">
 				<td>{{agency.name}}</td>
-				<td>{{agency.country}}</td>
+				<td>{{agency.country.name}}</td>
 				<td>
 					<a href="<c:url value="/secure/agency/" />{{agency.id}}">Details</a> |
 					<a href data-ng-click="deleteAgency(agency)">Delete</a> 

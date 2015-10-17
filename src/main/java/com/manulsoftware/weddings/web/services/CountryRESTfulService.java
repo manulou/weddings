@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.manulsoftware.weddings.entity.Country;
 import com.manulsoftware.weddings.service.IWeddingAgencyService;
 
 @Controller
@@ -17,7 +18,7 @@ public class CountryRESTfulService {
 	
 	@RequestMapping("/getCountries")
 	@ResponseBody
-	public List<String> allAgencies() {
+	public List<Country> allAgencies() {
 		return service.getAllCountries();
 	}
 	

@@ -20,6 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.manulsoftware.weddings.entity.Country;
 import com.manulsoftware.weddings.entity.Image;
 import com.manulsoftware.weddings.entity.WeddingAgency;
 import com.manulsoftware.weddings.service.IWeddingAgencyService;
@@ -144,8 +145,8 @@ public class WeddingAgencyService implements IWeddingAgencyService {
 	}
 	
 	@Override
-	public List<String> getAllCountries() {
-		return entityManager.createNamedQuery("WeddingAgency.getAllCountries", String.class).getResultList();
+	public List<Country> getAllCountries() {
+		return entityManager.createNamedQuery("Country.getAllCountries", Country.class).getResultList();
 	}
 	
 	private Integer countAgencies() {

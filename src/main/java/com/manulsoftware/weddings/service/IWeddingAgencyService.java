@@ -2,6 +2,7 @@ package com.manulsoftware.weddings.service;
 
 import java.util.List;
 
+import com.manulsoftware.weddings.entity.Country;
 import com.manulsoftware.weddings.entity.Image;
 import com.manulsoftware.weddings.entity.WeddingAgency;
 
@@ -21,7 +22,7 @@ public interface IWeddingAgencyService {
 	
 	// countries
 	
-	List<String> getAllCountries();
+	List<Country> getAllCountries();
 	
 	// images
 
