@@ -22,6 +22,24 @@
         				data-ng-options="country.id as country.name for country in countries" required>
 					</select>
 				</div>
+				<label class="col-sm-1 control-label" data-ng-class="{'has-error': detailsForm.minPrice.$dirty && detailsForm.minPrice.$invalid}">Min price</label>
+				<div class="col-xs-11 col-md-3"  data-ng-class="{'has-error': detailsForm.minPrice.$dirty && detailsForm.minPrice.$invalid}">					
+					<input type="number" name="minPrice" class="form-control" data-ng-model="agency.minPrice" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-1 control-label" data-ng-class="{'has-error': detailsForm.email.$dirty && detailsForm.email.$invalid}">Email</label>
+				<div class="col-xs-11 col-md-3" data-ng-class="{'has-error': detailsForm.email.$dirty && detailsForm.email.$invalid}">					
+					<input type="email" name="email" class="form-control" data-ng-model="agency.email" required />
+				</div>
+				<label class="col-sm-1 control-label" data-ng-class="{'has-error': detailsForm.phone.$dirty && detailsForm.phone.$invalid}">Phone</label>
+				<div class="col-xs-11 col-md-3"  data-ng-class="{'has-error': detailsForm.phone.$dirty && detailsForm.phone.$invalid}">					
+					<input type="text" name="phone" class="form-control" data-ng-model="agency.phone" />
+				</div>
+				<label class="col-sm-1 control-label" data-ng-class="{'has-error': detailsForm.maxPrice.$dirty && detailsForm.maxPrice.$invalid}">Max price</label>
+				<div class="col-xs-11 col-md-3"  data-ng-class="{'has-error': detailsForm.maxPrice.$dirty && detailsForm.maxPrice.$invalid}">					
+					<input type="number" name="maxPrice" class="form-control" data-ng-model="agency.maxPrice" />
+				</div>
 			</div>
 			<h4 class="dragAndDropSupported">Drag and drop images below</h4>
 			<div data-ng-show="id != null" class="ng-hide" class="form-group dragAndDropSupported">
