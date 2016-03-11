@@ -5,15 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "image")
-@NamedQueries({
-	@NamedQuery(name = "Image.getThumbnailIdsForAgency", query = "SELECT new com.manulsoftware.weddings.entity.Image(i.id, i.name, i.relatedImageId) FROM Image i WHERE i.thumbnail = true AND i.agencyId = :agencyId") })
 public class Image {
 	@Id
 	@SequenceGenerator(name="image_id_seq", sequenceName="image_id_seq", allocationSize=1)

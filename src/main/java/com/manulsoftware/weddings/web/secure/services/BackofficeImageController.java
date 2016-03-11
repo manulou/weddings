@@ -17,13 +17,13 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.manulsoftware.weddings.entity.Image;
-import com.manulsoftware.weddings.service.IWeddingAgencyService;
+import com.manulsoftware.weddings.service.ImageService;
 
 @Controller
 public class BackofficeImageController {
 
 	@Autowired
-	IWeddingAgencyService service;
+	ImageService imageService;
 
 	@RequestMapping(value = "/secure/uploadImage/{agencyId}", method = RequestMethod.POST)
 	public @ResponseBody Image upload(@PathVariable Integer agencyId,
@@ -42,7 +42,7 @@ public class BackofficeImageController {
 		image.setContent(source);
 		image.setContentType(mpf.getContentType());
 
-		image = service.createImage(image);
+		image = imageService.save(image);
 		
 		image.setContent(null);
 
@@ -51,6 +51,6 @@ public class BackofficeImageController {
 	
 	@RequestMapping(value = "/secure/deleteImage/{id}", method = RequestMethod.GET)
 	public @ResponseBody void deleteImage(@PathVariable Integer id) throws IOException {
-		service.deleteImage(id);
+		imageService.delete(imageService.findOne(id));
 	}
 }

@@ -8,8 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -19,8 +17,6 @@ import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "wedding_agency")
-@NamedQueries({
-		@NamedQuery(name = "WeddingAgency.getAllAgencies", query = "SELECT w FROM WeddingAgency w WHERE w.deleted = false") })
 public class WeddingAgency {
 	
 	@Id

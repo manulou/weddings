@@ -3,11 +3,11 @@ weddingsApp.controller('agencyListController', function ($scope, $http) {
 	var up = $('#urlPrefix').html();
 	
 	$scope.searchAgencies = function (page) {
-		if (page < 1) {
+		if (page < 0) {
 			page = 0;
 		}
-		if (page > $scope.agencies.lastPage) {
-			page = $scope.agencies.lastPage;
+		if (page >= $scope.agencies.lastPage) {
+			page = $scope.agencies.lastPage - 1;
 		}
         $http({
             url: up + 'secure/searchAgencies',
@@ -48,5 +48,5 @@ weddingsApp.controller('agencyListController', function ($scope, $http) {
  
     // Initialize required information: sorting, the first page to show and the grid options.
     $scope.sortInfo = {field: ['id'], direction: ['asc']};
-    $scope.agencies = {currentPage : 1};
+    $scope.agencies = {currentPage : 0};
 });

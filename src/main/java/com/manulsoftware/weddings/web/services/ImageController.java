@@ -16,23 +16,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.manulsoftware.weddings.entity.Image;
-import com.manulsoftware.weddings.service.IWeddingAgencyService;
+import com.manulsoftware.weddings.service.ImageService;
 
 @Controller
 public class ImageController {
 	
 	@Autowired
-	IWeddingAgencyService service;
+	ImageService imageService;
 	
-	@RequestMapping("/agency/{id}/thumbnails")
+	@RequestMapping("/agency/{agencyId}/thumbnails")
 	@ResponseBody
-	public List<Image> thumbnails(@PathVariable Integer id) {
-		return service.loadThumbnailsForAgency(id);
+	public List<Image> thumbnails(@PathVariable Integer agencyId) {
+		return imageService.findByAgencyId(agencyId);
 	}
 	
 	@RequestMapping("/image/{id}")
 	public ResponseEntity<InputStreamResource> loadImage(@PathVariable Integer id, ModelMap model, HttpSession session) {
-		final Image image = service.loadImage(id);
+		final Image image = imageService.findOne(id);
 		return ResponseEntity
 				.ok()
 				.contentLength(image.getContent().length)

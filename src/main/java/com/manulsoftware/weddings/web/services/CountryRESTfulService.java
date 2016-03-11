@@ -8,18 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.manulsoftware.weddings.entity.Country;
-import com.manulsoftware.weddings.service.IWeddingAgencyService;
+import com.manulsoftware.weddings.service.CountryService;
 
 @Controller
 public class CountryRESTfulService {
 
 	@Autowired
-	IWeddingAgencyService service;
+	CountryService countryService;
 	
 	@RequestMapping("/getCountries")
 	@ResponseBody
 	public List<Country> allAgencies() {
-		return service.getAllCountries();
+		return countryService.findAll();
 	}
 	
 }
