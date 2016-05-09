@@ -97,3 +97,19 @@ body {
   margin: 0;
   text-align: left;
 }
+
+.select-editable {
+  position:relative;
+}
+.select-editable select {
+  position:absolute;
+}
+.select-editable input {
+  position:absolute;
+  width:93%;;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+}
+.select-editable select:focus, .select-editable input:focus {
+  outline:none;
+}

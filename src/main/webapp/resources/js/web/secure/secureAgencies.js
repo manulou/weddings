@@ -1,6 +1,6 @@
-weddingsApp.controller('agencyListController', function ($scope, $http) {
+weddingsApp.controller('agencyListController', function ($scope, $http, ContextService) {
 	
-	var up = $('#urlPrefix').html();
+	var contextPath = ContextService.path;
 	
 	$scope.searchAgencies = function (page) {
 		if (page < 0) {
@@ -10,7 +10,7 @@ weddingsApp.controller('agencyListController', function ($scope, $http) {
 			page = $scope.agencies.lastPage - 1;
 		}
         $http({
-            url: up + 'secure/searchAgencies',
+            url: contextPath + 'secure/searchAgencies',
             method: 'GET',
             params: {
                 page: page,
@@ -25,7 +25,7 @@ weddingsApp.controller('agencyListController', function ($scope, $http) {
     $scope.deleteAgency = function (agency) {
     	if (confirm('Are you sure you want to delete the agency ' + agency.name + '?')) {
 	        $http({
-	            url: up + 'secure/deleteAgency/' + agency.id,
+	            url: contextPath + 'secure/deleteAgency/' + agency.id,
 	            method: 'GET'
 	        }).success(function (data) {
 	        	$scope.searchAgencies($scope.agencies.currentPage);

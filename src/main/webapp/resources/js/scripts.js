@@ -1,4 +1,9 @@
 var weddingsApp = angular.module('weddingsApp', []);
+weddingsApp.factory('ContextService', function() {
+	return {
+		path : $('#urlPrefix').html()
+	};
+});
 
 function uploadFile(file, uploadUrl) {
 	hideErrors();

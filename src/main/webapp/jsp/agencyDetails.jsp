@@ -18,7 +18,7 @@
 				<label class="col-sm-1 control-label" data-ng-class="{'has-error': detailsForm.country.$dirty && detailsForm.country.$invalid}">Country</label>
 				<div class="col-xs-11 col-md-3"  data-ng-class="{'has-error': detailsForm.country.$dirty && detailsForm.country.$invalid}">					
 					<select name="country" class="form-control" data-ng-model="agency.country.id"
-        				data-ng-options="name for id in countries" required>
+        				data-ng-options="country.id as country.name for country in countries" required>
 					</select>
 				</div>
 			</div>

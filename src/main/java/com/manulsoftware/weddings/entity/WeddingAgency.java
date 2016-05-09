@@ -1,16 +1,9 @@
 package com.manulsoftware.weddings.entity;
 
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -48,6 +41,17 @@ public class WeddingAgency {
 	private Date updated;
 	
 	private boolean deleted;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "weddingAgency")
+	private List<WeddingPackage> packages;
+
+	public List<WeddingPackage> getPackages() {
+		return packages;
+	}
+
+	public void setPackages(List<WeddingPackage> packages) {
+		this.packages = packages;
+	}
 
 	public Integer getId() {
 		return id;

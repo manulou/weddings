@@ -41,6 +41,63 @@
 					<input type="number" name="maxPrice" class="form-control" data-ng-model="agency.maxPrice" />
 				</div>
 			</div>
+			<div class="form-group" data-ng-show="id != null" data-ng-repeat-start="package in agency.packages">
+				<label class="col-sm-1 control-label" data-ng-class="{'has-error': detailsForm.packageName.$dirty && detailsForm.packageName.$invalid}">Package name</label>
+				<div class="col-xs-11 col-md-3" data-ng-class="{'has-error': detailsForm.packageName.$dirty && detailsForm.packageName.$invalid}">
+					<input type="text" name="packageName" class="form-control" data-ng-model="package.name" required />
+				</div>
+				<label class="col-sm-1 control-label" data-ng-class="{'has-error': detailsForm.packagePrice.$dirty && detailsForm.packagePrice.$invalid}">Price</label>
+				<div class="col-xs-11 col-md-7" data-ng-class="{'has-error': detailsForm.packagePrice.$dirty && detailsForm.packagePrice.$invalid}">
+					<input type="number" name="packagePrice" class="form-control" data-ng-model="package.price" />
+				</div>
+			</div>
+			<div class="form-group" data-ng-show="id != null" data-ng-repeat-start="category in categories">
+				<label class="col-sm-1 control-label" data-ng-class="{'has-error': detailsForm.categoryName.$dirty && detailsForm.categoryName.$invalid}">Category:</label>
+				<div class="col-xs-11 col-md-11 text-left" data-ng-class="{'has-error': detailsForm.categoryName.$dirty && detailsForm.categoryName.$invalid}">
+					<input type="text" name="categoryName" class="form-control" data-ng-model="category.name" required />
+				</div>
+			</div>
+			<div class="form-group" data-ng-show="id != null">
+				<label class="col-sm-3 control-label text-left" data-ng-repeat="packageAttribute in package.attributes" data-ng-if="packageAttribute.category.id == category.id">
+					{{packageAttribute.attribute.name}}
+				</label>
+			</div>
+			<div class="form-group" data-ng-show="id != null">
+				<label class="col-sm-1 control-label" data-ng-class="{'has-error': detailsForm.newAttributeName.$dirty && detailsForm.newAttributeName.$invalid}">New attribute:</label>
+				<div class="col-xs-11 col-md-7 select-editable" data-ng-class="{'has-error': detailsForm.newAttributeName.$dirty && detailsForm.newAttributeName.$invalid}">
+					<select data-ng-change="newAttribute.attribute.name = newAttributeSelect" class="form-control" data-ng-model="newAttributeSelect">
+						<option data-ng-repeat="attribute in attributes" value="{{attribute.name}}">{{attribute.name}}</option>
+					</select>
+					<input type="text" class="form-control" name="newAttributeName" data-ng-model="newAttribute.attribute.name"/>
+				</div>
+				<div class="col-xs-11 col-md-4 text-left">
+					<a href="#" class="btn btn-primary" data-ng-click="addAttribute(newAttribute, package, category)" role="button">Add attribute</a>
+				</div>
+			</div>
+			<div data-ng-repeat-end></div>
+			<hr data-ng-repeat-end></hr>
+			<div class="form-group" data-ng-show="id != null">
+				<label class="col-sm-1 control-label" data-ng-class="{'has-error': detailsForm.newCategoryName.$dirty && detailsForm.newCategoryName.$invalid}">Category name</label>
+				<div class="col-xs-11 col-md-3" data-ng-class="{'has-error': detailsForm.newCategoryName.$dirty && detailsForm.newCategoryName.$invalid}">
+					<input type="text" name="newCategoryName" class="form-control" data-ng-model="newCategory.name" required />
+				</div>
+				<div class="col-xs-11 col-md-8 text-left">
+					<a href="#" class="btn btn-primary" data-ng-click="addCategory(newCategory)" role="button">Add category</a>
+				</div>
+			</div>
+			<div class="form-group" data-ng-show="id != null">
+				<label class="col-sm-1 control-label" data-ng-class="{'has-error': detailsForm.newPackageName.$dirty && detailsForm.newPackageName.$invalid}">Package name</label>
+				<div class="col-xs-11 col-md-3" data-ng-class="{'has-error': detailsForm.newPackageName.$dirty && detailsForm.newPackageName.$invalid}">
+					<input type="text" name="newPackageName" class="form-control" data-ng-model="newPackage.name" required />
+				</div>
+				<label class="col-sm-1 control-label" data-ng-class="{'has-error': detailsForm.newPackagePrice.$dirty && detailsForm.newPackagePrice.$invalid}">Price</label>
+				<div class="col-xs-11 col-md-3"  data-ng-class="{'has-error': detailsForm.newPackagePrice.$dirty && detailsForm.newPackagePrice.$invalid}">
+					<input type="number" name="newPackagePrice" class="form-control" data-ng-model="newPackage.price" />
+				</div>
+				<div class="col-xs-11 col-md-4 text-left">
+					<a href="#" class="btn btn-primary" data-ng-click="addPackage(newPackage)" role="button">Add package</a>
+				</div>
+			</div>
 			<h4 class="dragAndDropSupported">Drag and drop images below</h4>
 			<div data-ng-show="id != null" class="ng-hide" class="form-group dragAndDropSupported">
 				<label class="col-sm-1 control-label"></label>
