@@ -1,7 +1,7 @@
 package com.manulsoftware.weddings.entity;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -19,6 +19,7 @@ public class WeddingPackage {
 
     @ManyToOne()
     @JoinColumn(name = "wedding_agency_id")
+    @JsonBackReference
     private WeddingAgency weddingAgency;
 
     private String name;
@@ -26,6 +27,7 @@ public class WeddingPackage {
     private BigDecimal price;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "weddingPackage")
+    @JsonManagedReference
     private List<PackageAttribute> attributes;
 
     public Integer getId() {

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Weddings" uuid="6811a4a3-8336-416b-af98-667275026d40">
+      <secret-storage>master_key</secret-storage>
+      <user-name>manul</user-name>
+    </data-source>
+  </component>
+</project>

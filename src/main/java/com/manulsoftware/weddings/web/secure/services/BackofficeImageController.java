@@ -49,7 +49,7 @@ public class BackofficeImageController {
 		return image;
 	}
 	
-	@RequestMapping(value = "/secure/deleteImage/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/secure/deleteImage/{id}", method = RequestMethod.DELETE)
 	public @ResponseBody void deleteImage(@PathVariable Integer id) throws IOException {
 		imageService.delete(imageService.findOne(id));
 	}

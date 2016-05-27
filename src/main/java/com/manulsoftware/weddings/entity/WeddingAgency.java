@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -43,6 +44,7 @@ public class WeddingAgency {
 	private boolean deleted;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "weddingAgency")
+	@JsonManagedReference
 	private List<WeddingPackage> packages;
 
 	public List<WeddingPackage> getPackages() {

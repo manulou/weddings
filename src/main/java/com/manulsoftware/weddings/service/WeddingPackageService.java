@@ -4,6 +4,7 @@ import com.manulsoftware.weddings.entity.WeddingAgency;
 import com.manulsoftware.weddings.entity.WeddingPackage;
 import org.springframework.data.repository.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,4 +17,13 @@ public interface WeddingPackageService extends Repository<WeddingPackage, Intege
     List<WeddingPackage> findAll();
 
     List<WeddingPackage> findByWeddingAgency(final WeddingAgency agency);
+
+    @Transactional
+    Long deleteByWeddingAgency(final WeddingAgency agency);
+
+    WeddingPackage save(final WeddingPackage weddingPackage);
+
+    void delete(final WeddingPackage weddingPackage);
+
+    WeddingPackage findOne(Integer id);
 }

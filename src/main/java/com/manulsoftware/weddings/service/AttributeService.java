@@ -14,4 +14,6 @@ import java.util.List;
 public interface AttributeService extends Repository<Attribute, Integer> {
 
     List<Attribute> findAllByOrderByName();
+
+    Attribute save(final Attribute attribute);
 }

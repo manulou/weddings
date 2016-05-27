@@ -15,4 +15,6 @@ import java.util.List;
 public interface CategoryService extends Repository<Category, Integer> {
 
     List<Category> findAllByOrderByPriority();
+
+    Category save(final Category category);
 }

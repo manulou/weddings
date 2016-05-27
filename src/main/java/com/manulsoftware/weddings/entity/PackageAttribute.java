@@ -1,5 +1,6 @@
 package com.manulsoftware.weddings.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -29,9 +30,8 @@ public class PackageAttribute {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "wedding_package_id")
+    @JsonBackReference
     private WeddingPackage weddingPackage;
-
-    private BigDecimal price;
 
     public WeddingPackage getWeddingPackage() {
         return weddingPackage;
@@ -39,14 +39,6 @@ public class PackageAttribute {
 
     public void setWeddingPackage(WeddingPackage weddingPackage) {
         this.weddingPackage = weddingPackage;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
     }
 
     public Integer getId() {

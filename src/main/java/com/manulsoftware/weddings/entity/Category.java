@@ -1,5 +1,8 @@
 package com.manulsoftware.weddings.entity;
 
+import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.GenerationTime;
+
 import javax.persistence.*;
 
 /**
@@ -15,7 +18,8 @@ public class Category {
 
     private String name;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "priority")
+    @Generated(GenerationTime.INSERT)
     private Integer priority;
 
     public Integer getPriority() {

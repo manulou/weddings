@@ -5,6 +5,10 @@ import java.text.Normalizer.Form;
 import java.util.Date;
 import java.util.List;
 
+import com.manulsoftware.weddings.entity.PackageAttribute;
+import com.manulsoftware.weddings.entity.WeddingPackage;
+import com.manulsoftware.weddings.service.PackageAttributeService;
+import com.manulsoftware.weddings.service.WeddingPackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -13,15 +17,22 @@ import org.springframework.stereotype.Service;
 
 import com.manulsoftware.weddings.entity.WeddingAgency;
 import com.manulsoftware.weddings.service.WeddingAgencyService;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class WeddingAgencyServiceImpl implements WeddingAgencyService {
 	
 	@Autowired
 	private WeddingAgencyCRUDService weddingAgencyCRUDService;
+
+	@Autowired
+	private WeddingPackageService weddingPackageService;
+
+	@Autowired
+	private PackageAttributeService packageAttributeService;
 	
 	@Override
-	public Integer save(WeddingAgency agency) {
+	public Integer save(final WeddingAgency agency) {
 		agency.setUpdated(new Date());
 		agency.setSeolink(toPrettyURL(agency.getName()));
 		
@@ -29,7 +40,26 @@ public class WeddingAgencyServiceImpl implements WeddingAgencyService {
 			agency.setCreated(agency.getUpdated());
 		}
 		
-		return weddingAgencyCRUDService.save(agency).getId();
+		final Integer id = weddingAgencyCRUDService.save(agency).getId();
+
+		weddingPackageService.deleteByWeddingAgency(agency);
+
+		if (agency.getPackages() != null) {
+			for (WeddingPackage weddingPackage : agency.getPackages()) {
+				weddingPackage.setId(null);
+				weddingPackage.setWeddingAgency(agency);
+				weddingPackageService.save(weddingPackage);
+				if (weddingPackage.getAttributes() != null) {
+					for (PackageAttribute packageAttribute : weddingPackage.getAttributes()) {
+						packageAttribute.setId(null);
+						packageAttribute.setWeddingPackage(weddingPackage);
+						packageAttributeService.save(packageAttribute);
+					}
+				}
+			}
+		}
+
+		return id;
 	}
 	
 	@Override
