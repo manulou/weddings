@@ -17,12 +17,12 @@ public class SpringContextStarter implements WebApplicationInitializer {
 		container.addListener(new ContextLoaderListener(context));
 		ServletRegistration.Dynamic dispatcher = container.addServlet("DispatcherServlet", new DispatcherServlet(context));
 		dispatcher.setLoadOnStartup(1);
-		dispatcher.addMapping("/web");
+		dispatcher.addMapping("/");
 	}
 
 	private AnnotationConfigWebApplicationContext getContext() {
 		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-		context.scan("ee.omx.mhub2.core.config");
+		context.scan("com.manulsoftware.weddings.web.config");
 		return context;
 	}
 }

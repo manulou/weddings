@@ -26,14 +26,14 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@EnableJpaRepositories("ee.omx.mhub2.core.facade")
+@EnableJpaRepositories("com.manulsoftware.weddings")
 @EnableTransactionManagement
 @Configuration
 @org.springframework.context.annotation.PropertySource("classpath:hibernate.properties")
 public class JpaConfig {
 
 	private static final Logger logger = LoggerFactory.getLogger(JpaConfig.class);
-	private static final String DATASOURCE_CONTEXT = "java:/comp/env/jdbc/mhubDS";
+	private static final String DATASOURCE_CONTEXT = "java:/comp/env/jdbc/weddingDS";
 
 	private static final String HIBERNATE = "hibernate";
 
@@ -41,7 +41,7 @@ public class JpaConfig {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(Environment env) {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(dataSource());
-		em.setPackagesToScan(new String[] { "ee.omx.mhub2.core.facade", "ee.omx.mhub2.core.data" });
+		em.setPackagesToScan(new String[] { "com.manulsoftware.weddings" });
 
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);
@@ -54,7 +54,7 @@ public class JpaConfig {
 	public DataSource dataSource() {
 		try {
 			Context initialContext = new InitialContext();
-			DataSource datasource = (DataSource) initialContext.lookup(DATASOURCE_CONTEXT);
+			final DataSource datasource = (DataSource) initialContext.lookup(DATASOURCE_CONTEXT);
 
 			return datasource;
 		} catch (NamingException ex) {
