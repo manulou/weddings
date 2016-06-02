@@ -4,7 +4,7 @@
 
 <div class="container">
 
-	<div class="main" data-ng-controller="agencyDetailsController"  data-ng-init="init('${empty id ? 'New' : id}')">
+	<div class="main" data-ng-controller="agencyDetailsController" data-ng-init="init('${empty id ? 'New' : id}')">
 		<h1>Agency Details, id: {{agency.id}}</h1>
 		<spring:url value="/saveAgency" var="saveUrl" />
 		<spring:url value="/uploadAgencyPhoto" var="uploadUrl" />

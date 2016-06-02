@@ -63,7 +63,10 @@ public class ImageServiceImpl implements ImageService {
 	
 	@Override
 	public List<Image> findByAgencyId(Integer agencyId) {
-		return imageCRUDService.findByAgencyIdAndThumbnail(agencyId, true);
+		//TODO: fix it properly
+		final List<Image> images = imageCRUDService.findByAgencyIdAndThumbnail(agencyId, true);
+		images.forEach((image -> image.setContent(null)));
+		return images;
 	}
 	
 	@Override

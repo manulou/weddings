@@ -4,28 +4,61 @@
 
 <div class="container">
 
-	<div class="main" data-ng-controller="agencyDetailsController"  data-ng-init="init('${empty id ? 'New' : id}')">
-		<h1>Agency Details, id: {{agency.id}}</h1>
-		<spring:url value="/saveAgency" var="saveUrl" />
-		<spring:url value="/uploadAgencyPhoto" var="uploadUrl" />
-		
-		<form name="detailsForm" novalidate class="form-horizontal" enctype="multipart/form-data">
-			<div class="form-group">
-				<label class="col-sm-1 control-label" data-ng-class="{'has-error': detailsForm.name.$dirty && detailsForm.name.$invalid}">Name</label>
-				<div class="col-xs-11 col-md-3" data-ng-class="{'has-error': detailsForm.name.$dirty && detailsForm.name.$invalid}">					
-					<input type="text" name="name" class="form-control" data-ng-model="agency.name" required />
-				</div>
-				<label class="col-sm-1 control-label" data-ng-class="{'has-error': detailsForm.country.$dirty && detailsForm.country.$invalid}">Country</label>
-				<div class="col-xs-11 col-md-3"  data-ng-class="{'has-error': detailsForm.country.$dirty && detailsForm.country.$invalid}">					
-					<select name="country" class="form-control" data-ng-model="agency.country.id"
-        				data-ng-options="country.id as country.name for country in countries" required>
-					</select>
+	<div class="main" data-ng-controller="agencyDetailsController" data-ng-init="init('${empty id ? 'unknown' : id}')">
+		<spring:url value="/image/" var="imageUrl" />
+
+		<h1>{{agency.name}}</h1>
+
+		<div class="col-md-4">
+			<label class="control-label">Country:</label>
+			{{agency.country.name}}
+		</div>
+		<div class="col-md-4">
+			<label class="control-label">Email:</label>
+			{{agency.email}}
+		</div>
+		<div class="col-md-4">
+			<label class="control-label">Phone:</label>
+			{{agency.phone}}
+		</div>
+		<div class="col-md-6 text-left" data-ng-repeat-start="package in agency.packages">
+			<h2>{{package.name}}</h2>
+		</div>
+		<div class="col-md-6 text-right">
+			<h2>{{package.price}} EUR</h2>
+		</div>
+		<div class="row">
+		<div class="categories">
+			<div class="col-md-3 col-xs-12 col-sm-4 category" data-ng-repeat="category in categories">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">{{category.name}}</h3>
+					</div>
+					<div class="panel-body">
+						<ul class="list-group text-left">
+							<li class="list-group-item" data-ng-repeat="packageAttribute in package.attributes" data-ng-if="packageAttribute.category.id == category.id">
+								<span class="progress-bar-success badge">
+									<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+								</span>
+								{{packageAttribute.attribute.name}}
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
-			<div class="form-group">
-				<button id="backButton" class="btn btn-primary btn-lg" onclick="document.location='<c:url value="/" />';">Back</button>
+		</div>
+		</div>
+		<hr data-ng-repeat-end class="col-md-12"></hr>
+		<div class="col-sm-2" data-ng-repeat="image in images">
+			<div class="thumbnail">
+				<a href="${imageUrl}{{image.relatedImageId}}" target="_blank">
+					<img data-ng-src="${imageUrl}{{image.id}}" alt="{{image.name}}" />
+				</a>
 			</div>
-        </form>
+		</div>
+	</div>
+	<div class="col-md-12 text-center">
+		<button id="backButton" class="btn btn-primary btn-lg" onclick="document.location='<c:url value="/" />';">Back</button>
 	</div>
 	
 </div>

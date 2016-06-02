@@ -22,6 +22,7 @@
 	<script src="<c:url value="/resources/js/jquery-2.1.3.min.js" />"></script>
 	<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 	<script src="<c:url value="/resources/js/angular.min.js" />"></script>
+    <script src="<c:url value="/resources/js/masonry.pkgd.min.js" />"></script>
 	<script src="<c:url value="/resources/js/scripts.js" />"></script>
 </head>
 <body>
