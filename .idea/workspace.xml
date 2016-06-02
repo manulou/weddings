@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9348d067-1095-4d0e-82c6-95b9e65ceb17" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/masonry.pkgd.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/service/impl/ImageServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/service/impl/ImageServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/agencyDetails.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/agencyDetails.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/layout/header.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/layout/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/secure/secureAgencyDetails.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/secure/secureAgencyDetails.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/web/agencyDetails.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/web/agencyDetails.js" />
     </list>
     <ignored path="weddings.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,17 +39,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="agencyDetails.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="agencyDetails.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/agencyDetails.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1225">
-              <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+            <state relative-caret-position="625">
+              <caret line="25" column="74" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="74" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="agencyDetails.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="agencyDetails.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/web/agencyDetails.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="525">
@@ -204,8 +198,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/service/impl/ImageServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/layout/header.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/jsp/agencyDetails.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/js/web/agencyDetails.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/agencyDetails.jsp" />
       </list>
     </option>
   </component>
@@ -1311,7 +1305,7 @@
       <workItem from="1463948316556" duration="1955000" />
       <workItem from="1464288344108" duration="641000" />
       <workItem from="1464372624282" duration="4084000" />
-      <workItem from="1464888713624" duration="8254000" />
+      <workItem from="1464888713624" duration="8625000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit for package/category/attribute support">
       <created>1462829010274</created>
@@ -1324,7 +1318,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50644000" />
+    <option name="totallyTimeSpent" value="51015000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1788,18 +1782,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/agencyDetails.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1225">
-          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/web/agencyDetails.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="21" column="152" selection-start-line="21" selection-start-column="152" selection-end-line="21" selection-end-column="152" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/agencyDetails.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="25" column="74" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="74" />
           <folding />
         </state>
       </provider>
