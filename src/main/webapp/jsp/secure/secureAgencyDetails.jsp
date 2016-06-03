@@ -52,13 +52,21 @@
 					<input type="number" name="packagePrice" class="form-control" data-ng-model="package.price" />
 				</div>
 				<div class="col-xs-11 col-md-2 text-left">
-					<a href="#" class="btn btn-primary" data-ng-click="deletePackage(package)" role="button">Delete package</a>
+					<a href="#" class="btn btn-danger" data-ng-click="deletePackage(package)" role="button">Delete package</a>
 				</div>
 			</div>
+
 			<div class="form-group" data-ng-show="id != null" data-ng-repeat-start="category in categories">
 				<label class="col-sm-1 control-label" data-ng-class="{'has-error': detailsForm.categoryName.$dirty && detailsForm.categoryName.$invalid}">Category:</label>
-				<div class="col-xs-11 col-md-11 text-left" data-ng-class="{'has-error': detailsForm.categoryName.$dirty && detailsForm.categoryName.$invalid}">
+				<div class="col-md-3 text-left" data-ng-class="{'has-error': detailsForm.categoryName.$dirty && detailsForm.categoryName.$invalid}">
 					<input type="text" name="categoryName" class="form-control" data-ng-model="category.name" required />
+				</div>
+				<label class="col-sm-1 control-label">New attribute:</label>
+				<div class="col-xs-11 col-md-3">
+					<input type="text" class="form-control" name="newAttributeName" data-ng-model="newAttribute.attribute.name" />
+				</div>
+				<div class="col-xs-12 col-md-4 text-left">
+					<a href="#" class="btn btn-primary" data-ng-click="addAttribute(newAttribute, package, category)" role="button">Add attribute</a>
 				</div>
 			</div>
 			<div class="form-group" data-ng-show="id != null">
@@ -66,16 +74,8 @@
 					<input type="checkbox" data-ng-checked="packageHasAttribute(package, attribute)" data-ng-click="toggleAttributeInPackage(attribute, package, category)" /> {{attribute.name}}
 				</div>
 			</div>
-			<div class="form-group" data-ng-show="id != null">
-				<label class="col-sm-1 control-label">New attribute:</label>
-				<div class="col-xs-11 col-md-3">
-					<input type="text" class="form-control" name="newAttributeName" data-ng-model="newAttribute.attribute.name" />
-				</div>
-				<div class="col-xs-11 col-md-8 text-left">
-					<a href="#" class="btn btn-primary" data-ng-click="addAttribute(newAttribute, package, category)" role="button">Add attribute</a>
-				</div>
-			</div>
 			<hr data-ng-repeat-end></hr>
+
 			<hr data-ng-repeat-end></hr>
 			<div class="form-group" data-ng-show="id != null">
 				<label class="col-sm-1 control-label">Package name</label>
@@ -87,7 +87,7 @@
 					<input type="number" name="newPackagePrice" class="form-control" data-ng-model="newPackage.price" />
 				</div>
 				<div class="col-xs-11 col-md-4 text-left">
-					<a href="#" class="btn btn-primary" data-ng-click="addPackage(newPackage)" role="button">Add package</a>
+					<a href="#" class="btn btn-success" data-ng-click="addPackage(newPackage)" role="button">Add package</a>
 				</div>
 			</div>
 			<div class="form-group" data-ng-show="id != null">
@@ -96,7 +96,7 @@
 					<input type="text" name="newCategoryName" class="form-control" data-ng-model="newCategory.name" />
 				</div>
 				<div class="col-xs-11 col-md-8 text-left">
-					<a href="#" class="btn btn-primary" data-ng-click="addCategory(newCategory)" role="button">Add category</a>
+					<a href="#" class="btn btn-success" data-ng-click="addCategory(newCategory)" role="button">Add category</a>
 				</div>
 			</div>
 			<h4 class="dragAndDropSupported">Drag and drop images below</h4>
@@ -121,14 +121,14 @@
 					</div>
 					<div class="caption">
 						<p>
-							<a href="#" class="btn btn-primary"  data-ng-click="deleteImage(image)" role="button">Delete</a>
+							<a href="#" class="btn btn-danger"  data-ng-click="deleteImage(image)" role="button">Delete</a>
 						</p>
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<button id="backButton" class="btn btn-primary btn-lg" onclick="document.location='<c:url value="/secure" />';">Back</button>
-				<button id="submitButton" data-ng-click="save(agency)" type="submit" data-loading-text="Just a sec..." class="btn btn-primary btn-lg" >Save</button>
+				<button id="submitButton" data-ng-click="save(agency)" type="submit" data-loading-text="Just a sec..." class="btn btn-success btn-lg" >Save</button>
 			</div>
         </form>
 	</div>
