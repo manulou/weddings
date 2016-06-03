@@ -47,6 +47,14 @@
 									{{packageAttribute.attribute.name}}
 								</li>
 							</ul>
+							<ul class="list-group text-left" ng-hide="hasAttributesForCategory(package, category)">
+								<li class="list-group-item">
+									<span class="progress-bar-danger badge">
+										<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+									</span>
+									Not available
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>

@@ -21,5 +21,14 @@ weddingsApp.controller('agencyDetailsController', function ($scope, $rootScope, 
 		$scope.$watch('agency', function(newValue, oldValue) {
 			$scope.$evalAsync(function() { $('.categories').masonry({itemSelector: '.category', percentPosition: true, columnWidth: '.category' }); } );
 		});
+	};
+
+	$scope.hasAttributesForCategory = function(pkg, category) {
+		for (var i = 0; i < pkg.attributes.length; i++) {
+			if (pkg.attributes[i].category.id == category.id) {
+				return true;
+			}
+		}
+		return false;
 	}
 });
