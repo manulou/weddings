@@ -43,6 +43,7 @@
 			</div>
 			<hr />
 			<div class="form-group" data-ng-show="id != null" data-ng-repeat-start="package in agency.packages">
+				<h2 class="col-md-12">{{package.name}}</h2>
 				<label class="col-sm-1 control-label" data-ng-class="{'has-error': detailsForm.packageName.$dirty && detailsForm.packageName.$invalid}">Package name</label>
 				<div class="col-xs-11 col-md-3" data-ng-class="{'has-error': detailsForm.packageName.$dirty && detailsForm.packageName.$invalid}">
 					<input type="text" name="packageName" class="form-control" data-ng-model="package.name" required />
@@ -52,7 +53,7 @@
 					<input type="number" name="packagePrice" class="form-control" data-ng-model="package.price" />
 				</div>
 				<div class="col-xs-11 col-md-2 text-left">
-					<a href="#" class="btn btn-danger" data-ng-click="deletePackage(package)" role="button">Delete package</a>
+					<a href="javascript:;" class="btn btn-danger" data-ng-click="deletePackage(package)" role="button">Delete package</a>
 				</div>
 			</div>
 
@@ -66,7 +67,7 @@
 					<input type="text" class="form-control" name="newAttributeName" data-ng-model="newAttribute.attribute.name" />
 				</div>
 				<div class="col-xs-12 col-md-4 text-left">
-					<a href="#" class="btn btn-primary" data-ng-click="addAttribute(newAttribute, package, category)" role="button">Add attribute</a>
+					<a href="javascript:;" class="btn btn-primary" data-ng-click="addAttribute(newAttribute, package, category)" role="button">Add attribute</a>
 				</div>
 			</div>
 			<div class="form-group" data-ng-show="id != null">
@@ -87,7 +88,7 @@
 					<input type="number" name="newPackagePrice" class="form-control" data-ng-model="newPackage.price" />
 				</div>
 				<div class="col-xs-11 col-md-4 text-left">
-					<a href="#" class="btn btn-success" data-ng-click="addPackage(newPackage)" role="button">Add package</a>
+					<a href="javascript:;" class="btn btn-success" data-ng-click="addPackage(newPackage)" role="button">Add package</a>
 				</div>
 			</div>
 			<div class="form-group" data-ng-show="id != null">
@@ -96,7 +97,7 @@
 					<input type="text" name="newCategoryName" class="form-control" data-ng-model="newCategory.name" />
 				</div>
 				<div class="col-xs-11 col-md-8 text-left">
-					<a href="#" class="btn btn-success" data-ng-click="addCategory(newCategory)" role="button">Add category</a>
+					<a href="javascript:;" class="btn btn-success" data-ng-click="addCategory(newCategory)" role="button">Add category</a>
 				</div>
 			</div>
 			<h4 class="dragAndDropSupported">Drag and drop images below</h4>
@@ -121,7 +122,7 @@
 					</div>
 					<div class="caption">
 						<p>
-							<a href="#" class="btn btn-danger"  data-ng-click="deleteImage(image)" role="button">Delete</a>
+							<a href="javascript:;" class="btn btn-danger"  data-ng-click="deleteImage(image)" role="button">Delete</a>
 						</p>
 					</div>
 				</div>

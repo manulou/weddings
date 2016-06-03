@@ -97,14 +97,18 @@ var controller = weddingsApp.controller('agencyDetailsController', function ($sc
 	};
 
 	$scope.deletePackage = function(pkg) {
-		if(pkg.id != '') {
-			$http.delete(contextPath + 'secure/deletePackage/' + pkg.id).success(function() {
-				for (var i = $scope.agency.packages.length - 1; i >= 0; i--) {
-					if($scope.agency.packages[i].id === pkg.id) {
-						$scope.agency.packages.splice(i, 1);
+		if (confirm('Are you sure you want to delete package "' + pkg.name + '"?')) {
+			if (pkg.id) {
+				$http.delete(contextPath + 'secure/deletePackage/' + pkg.id).success(function () {
+					for (var i = $scope.agency.packages.length - 1; i >= 0; i--) {
+						if ($scope.agency.packages[i].id === pkg.id) {
+							$scope.agency.packages.splice(i, 1);
+						}
 					}
-				}
-			});
+				});
+			} else {
+				$scope.agency.packages.splice($scope.agency.packages.length - 1, 1);
+			}
 		}
 	};
 

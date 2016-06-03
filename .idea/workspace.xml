@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9348d067-1095-4d0e-82c6-95b9e65ceb17" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/secure/secureAgencyDetails.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/secure/secureAgencyDetails.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/web/secure/secureAgencyDetails.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/web/secure/secureAgencyDetails.js" />
     </list>
     <ignored path="weddings.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -102,8 +104,8 @@
       <file leaf-file-name="secureAgencyDetails.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/secure/secureAgencyDetails.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="75" column="18" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
+            <state relative-caret-position="725">
+              <caret line="45" column="52" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -132,8 +134,8 @@
       <file leaf-file-name="secureAgencyDetails.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/web/secure/secureAgencyDetails.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+            <state relative-caret-position="625">
+              <caret line="100" column="22" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -189,7 +191,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/entity/PackageAttribute.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/entity/WeddingPackage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/service/impl/WeddingAgencyServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/web/secure/secureAgencyDetails.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/web/secure/services/BackofficeImageController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/service/WeddingPackageService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/web/secure/services/BackofficeRESTfulService.java" />
@@ -206,6 +207,7 @@
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/layout/header.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/js/web/agencyDetails.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/agencyDetails.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/web/secure/secureAgencyDetails.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/secure/secureAgencyDetails.jsp" />
       </list>
     </option>
@@ -1313,7 +1315,7 @@
       <workItem from="1464288344108" duration="641000" />
       <workItem from="1464372624282" duration="4084000" />
       <workItem from="1464888713624" duration="8763000" />
-      <workItem from="1464982727321" duration="1820000" />
+      <workItem from="1464982727321" duration="3013000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit for package/category/attribute support">
       <created>1462829010274</created>
@@ -1326,7 +1328,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52973000" />
+    <option name="totallyTimeSpent" value="54166000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1364,7 +1366,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3617021" sideWeight="0.72104144" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3617021" sideWeight="0.72104144" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1775,14 +1777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/web/secure/secureAgencyDetails.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/web/services/AgencyRESTfulService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="650">
@@ -1810,10 +1804,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/web/secure/secureAgencyDetails.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="100" column="22" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/secure/secureAgencyDetails.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="75" column="18" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
+        <state relative-caret-position="725">
+          <caret line="45" column="52" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
           <folding />
         </state>
       </provider>
