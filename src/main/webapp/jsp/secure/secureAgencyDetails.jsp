@@ -22,9 +22,8 @@
         				data-ng-options="country.id as country.name for country in countries" required>
 					</select>
 				</div>
-				<label class="col-sm-1 control-label" data-ng-class="{'has-error': detailsForm.minPrice.$dirty && detailsForm.minPrice.$invalid}">Min price</label>
-				<div class="col-xs-11 col-md-3"  data-ng-class="{'has-error': detailsForm.minPrice.$dirty && detailsForm.minPrice.$invalid}">					
-					<input type="number" name="minPrice" class="form-control" data-ng-model="agency.minPrice" />
+				<div class="col-sm-4 text-left">
+					<input type="checkbox" name="visible" data-ng-model="agency.visible" /> Visible
 				</div>
 			</div>
 			<div class="form-group">
@@ -36,10 +35,6 @@
 				<div class="col-xs-11 col-md-3"  data-ng-class="{'has-error': detailsForm.phone.$dirty && detailsForm.phone.$invalid}">					
 					<input type="text" name="phone" class="form-control" data-ng-model="agency.phone" />
 				</div>
-				<label class="col-sm-1 control-label" data-ng-class="{'has-error': detailsForm.maxPrice.$dirty && detailsForm.maxPrice.$invalid}">Max price</label>
-				<div class="col-xs-11 col-md-3"  data-ng-class="{'has-error': detailsForm.maxPrice.$dirty && detailsForm.maxPrice.$invalid}">					
-					<input type="number" name="maxPrice" class="form-control" data-ng-model="agency.maxPrice" />
-				</div>
 			</div>
 			<hr />
 			<div class="form-group" data-ng-show="id != null" data-ng-repeat-start="package in agency.packages">
@@ -49,8 +44,11 @@
 					<input type="text" name="packageName" class="form-control" data-ng-model="package.name" required />
 				</div>
 				<label class="col-sm-1 control-label" data-ng-class="{'has-error': detailsForm.packagePrice.$dirty && detailsForm.packagePrice.$invalid}">Price</label>
-				<div class="col-xs-11 col-md-5" data-ng-class="{'has-error': detailsForm.packagePrice.$dirty && detailsForm.packagePrice.$invalid}">
+				<div class="col-xs-11 col-md-3" data-ng-class="{'has-error': detailsForm.packagePrice.$dirty && detailsForm.packagePrice.$invalid}">
 					<input type="number" name="packagePrice" class="form-control" data-ng-model="package.price" />
+				</div>
+				<div class="col-sm-2 text-left">
+					<input type="checkbox" name="visible" data-ng-model="package.visible" /> Visible
 				</div>
 				<div class="col-xs-11 col-md-2 text-left">
 					<a href="javascript:;" class="btn btn-danger" data-ng-click="deletePackage(package)" role="button">Delete package</a>

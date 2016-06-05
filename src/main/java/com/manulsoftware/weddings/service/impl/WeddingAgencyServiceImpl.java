@@ -69,6 +69,11 @@ public class WeddingAgencyServiceImpl implements WeddingAgencyService {
 	
 	@Override
 	public Page<WeddingAgency> getAgenciesPage(final Integer page, final String sortField, final String sortDirection) {
+		return weddingAgencyCRUDService.findByDeletedAndVisible(false, true, new PageRequest(page, 20, Direction.fromString(sortDirection), sortField));
+	}
+
+	@Override
+	public Page<WeddingAgency> getAgenciesPageAdmin(final Integer page, final String sortField, final String sortDirection) {
 		return weddingAgencyCRUDService.findByDeleted(false, new PageRequest(page, 20, Direction.fromString(sortDirection), sortField));
 	}
 	

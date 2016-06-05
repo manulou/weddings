@@ -61,7 +61,7 @@ public class BackofficeRESTfulService {
 	public PaginatedList<WeddingAgency> searchAgencies(@RequestParam("page") Integer page,
 			@RequestParam("sortField") String sortField,
 			@RequestParam("sortDirection") String sortDirection) {
-		final Page<WeddingAgency> p = weddingAgencyService.getAgenciesPage(page, sortField, sortDirection);
+		final Page<WeddingAgency> p = weddingAgencyService.getAgenciesPageAdmin(page, sortField, sortDirection);
 		return new PaginatedList<WeddingAgency>(p, sortField, sortDirection);
 	}
 }

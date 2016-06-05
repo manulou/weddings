@@ -15,6 +15,8 @@ public interface WeddingAgencyService {
 	List<WeddingAgency> findAll();
 	
 	Page<WeddingAgency> getAgenciesPage(final Integer page, final String sortField, final String sortDirection);
+
+	Page<WeddingAgency> getAgenciesPageAdmin(final Integer page, final String sortField, final String sortDirection);
 	
 	WeddingAgency findOne(final Integer id);
 	

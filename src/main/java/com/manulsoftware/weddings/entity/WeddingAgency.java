@@ -31,17 +31,13 @@ public class WeddingAgency {
 	
 	private String phone;
 	
-	@Column(name = "min_price")
-	private Integer minPrice;
-	
-	@Column(name = "max_price")
-	private Integer maxPrice;
-	
 	private Date created;
 	
 	private Date updated;
 	
 	private boolean deleted;
+
+	private boolean visible;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "weddingAgency")
 	@JsonManagedReference
@@ -127,19 +123,11 @@ public class WeddingAgency {
 		this.phone = phone;
 	}
 
-	public Integer getMinPrice() {
-		return minPrice;
+	public boolean isVisible() {
+		return visible;
 	}
 
-	public void setMinPrice(Integer minPrice) {
-		this.minPrice = minPrice;
-	}
-
-	public Integer getMaxPrice() {
-		return maxPrice;
-	}
-
-	public void setMaxPrice(Integer maxPrice) {
-		this.maxPrice = maxPrice;
+	public void setVisible(boolean visible) {
+		this.visible = visible;
 	}
 }

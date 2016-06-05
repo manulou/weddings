@@ -26,6 +26,8 @@ public class WeddingPackage {
 
     private BigDecimal price;
 
+    private boolean visible;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "weddingPackage")
     @JsonManagedReference
     private List<PackageAttribute> attributes;
@@ -68,5 +70,13 @@ public class WeddingPackage {
 
     public void setAttributes(List<PackageAttribute> attributes) {
         this.attributes = attributes;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 }
