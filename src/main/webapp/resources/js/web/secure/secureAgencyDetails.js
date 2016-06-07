@@ -41,7 +41,7 @@ var controller = weddingsApp.controller('agencyDetailsController', function ($sc
     	    return false;
     	}
     	
-    	$http.get(contextPath + 'getAgency/' + $scope.id).success(function(data) {
+    	$http.get(contextPath + 'secure/getAgency/' + $scope.id).success(function(data) {
 		    $scope.agency = data;
 		});
 	    $http.get(contextPath + 'agency/' + $scope.id + '/thumbnails').success(function(data) {

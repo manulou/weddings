@@ -1,6 +1,7 @@
 package com.manulsoftware.weddings.web.services;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.manulsoftware.weddings.entity.Attribute;
 import com.manulsoftware.weddings.entity.Category;
@@ -40,7 +41,9 @@ public class AgencyRESTfulService {
 	@RequestMapping("/getAgency/{id}")
 	@ResponseBody
 	public WeddingAgency getAgency(@PathVariable Integer id) {
-		return weddingAgencyService.findOne(id);
+		final WeddingAgency agency = weddingAgencyService.findOne(id);
+		filterPackages(agency);
+		return agency;
 	}
 
 	@RequestMapping("/getCategories")
@@ -61,6 +64,11 @@ public class AgencyRESTfulService {
 			@RequestParam("sortField") String sortField,
 			@RequestParam("sortDirection") String sortDirection) {
 		final Page<WeddingAgency> p = weddingAgencyService.getAgenciesPage(page, sortField, sortDirection);
+		p.forEach(agency -> filterPackages(agency));
 		return new PaginatedList<WeddingAgency>(p, sortField, sortDirection);
+	}
+
+	private void filterPackages(final WeddingAgency agency) {
+		agency.setPackages(agency.getPackages().stream().filter(pkg -> pkg.isVisible()).collect(Collectors.toList()));
 	}
 }

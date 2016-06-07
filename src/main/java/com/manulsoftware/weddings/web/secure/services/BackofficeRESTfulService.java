@@ -23,6 +23,12 @@ public class BackofficeRESTfulService {
 
 	@Autowired
 	WeddingPackageService weddingPackageService;
+
+	@RequestMapping("/secure/getAgency/{id}")
+	@ResponseBody
+	public WeddingAgency getAgency(@PathVariable Integer id) {
+		return weddingAgencyService.findOne(id);
+	}
 	
 	@RequestMapping("/secure/deleteAgency/{id}")
 	@ResponseBody
