@@ -1215,7 +1215,7 @@
       <workItem from="1477231518588" duration="4591000" />
       <workItem from="1477323119839" duration="1988000" />
       <workItem from="1477325423949" duration="5577000" />
-      <workItem from="1477668176515" duration="806000" />
+      <workItem from="1477668176515" duration="813000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit for package/category/attribute support">
       <created>1462829010274</created>
@@ -1238,11 +1238,18 @@
       <option name="project" value="LOCAL" />
       <updated>1477668976336</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Angular 2">
+      <created>1477668993471</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1477668993471</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102129000" />
+    <option name="totallyTimeSpent" value="102136000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
