@@ -46,3 +46,4 @@ Temporary Items
 .project
 .settings/
 target/
+src/main/webapp/resources/node_modules/
