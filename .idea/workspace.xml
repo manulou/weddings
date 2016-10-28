@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9348d067-1095-4d0e-82c6-95b9e65ceb17" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="9348d067-1095-4d0e-82c6-95b9e65ceb17" name="Default" comment="" />
     <ignored path="weddings.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -46,8 +44,8 @@
       <file leaf-file-name="editAgency.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/app/html/editAgency.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="7" column="86" selection-start-line="7" selection-start-column="80" selection-end-line="7" selection-end-column="86" />
+            <state relative-caret-position="1025">
+              <caret line="41" column="15" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -1215,7 +1213,7 @@
       <workItem from="1477231518588" duration="4591000" />
       <workItem from="1477323119839" duration="1988000" />
       <workItem from="1477325423949" duration="5577000" />
-      <workItem from="1477668176515" duration="813000" />
+      <workItem from="1477668176515" duration="905000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit for package/category/attribute support">
       <created>1462829010274</created>
@@ -1249,7 +1247,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102136000" />
+    <option name="totallyTimeSpent" value="102228000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1262,7 +1260,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="3854" height="2122" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952777" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1273,7 +1271,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952777" sideWeight="0.49787912" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951587" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27433628" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27433628" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951587" sideWeight="0.49893954" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1657,8 +1655,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/app/html/editAgency.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="86" selection-start-line="7" selection-start-column="80" selection-end-line="7" selection-end-column="86" />
+        <state relative-caret-position="1025">
+          <caret line="41" column="15" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
           <folding />
         </state>
       </provider>
