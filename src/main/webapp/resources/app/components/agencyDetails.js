@@ -9,12 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var agenciesService_1 = require("./services/agenciesService");
-var app_constants_1 = require("./app.constants");
+var agenciesService_1 = require("../services/agenciesService");
+var app_constants_1 = require("../app.constants");
 var router_1 = require("@angular/router");
-var categoriesService_1 = require("./services/categoriesService");
-var attributesService_1 = require("./services/attributesService");
-var imagesService_1 = require("./services/imagesService");
+var categoriesService_1 = require("../services/categoriesService");
+var attributesService_1 = require("../services/attributesService");
+var imagesService_1 = require("../services/imagesService");
 var AgencyDetailsComponent = (function () {
     function AgencyDetailsComponent(agenciesService, categoriesService, attributesService, imagesService, changeDetector, route) {
         this.agenciesService = agenciesService;
@@ -51,7 +51,7 @@ var AgencyDetailsComponent = (function () {
         core_1.Component({
             selector: 'agencyDetails',
             providers: [agenciesService_1.AgenciesService, categoriesService_1.CategoriesService, attributesService_1.AttributesService, imagesService_1.ImagesService, app_constants_1.Configuration],
-            templateUrl: 'resources/js/angular/app/html/agencyDetails.html'
+            templateUrl: 'resources/app/html/agencyDetails.html'
         }), 
         __metadata('design:paramtypes', [agenciesService_1.AgenciesService, categoriesService_1.CategoriesService, attributesService_1.AttributesService, imagesService_1.ImagesService, core_1.ChangeDetectorRef, router_1.ActivatedRoute])
     ], AgencyDetailsComponent);

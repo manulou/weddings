@@ -9,7 +9,14 @@
 			<td>{{agency.name}}</td>
 			<td>{{agency.country.name}}</td>
 			<td>
-				<a [routerLink]="['/agency', agency.id]">Details</a>
+				<a [routerLink]="['/secure/agency', agency.id]">Details</a> |
+				<a href="javascript:void(0)" (click)="deleteAgency(agency)">Delete</a>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2"></td>
+			<td>
+				<a routerLink="/secure/agency/new">New Agency</a>
 			</td>
 		</tr>
 		<tr>

@@ -1,13 +1,10 @@
 package com.manulsoftware.weddings.service.impl;
 
-import java.text.Normalizer;
-import java.text.Normalizer.Form;
-import java.util.Date;
-import java.util.List;
-
 import com.manulsoftware.weddings.entity.PackageAttribute;
+import com.manulsoftware.weddings.entity.WeddingAgency;
 import com.manulsoftware.weddings.entity.WeddingPackage;
 import com.manulsoftware.weddings.service.PackageAttributeService;
+import com.manulsoftware.weddings.service.WeddingAgencyService;
 import com.manulsoftware.weddings.service.WeddingPackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,9 +12,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
-import com.manulsoftware.weddings.entity.WeddingAgency;
-import com.manulsoftware.weddings.service.WeddingAgencyService;
-import org.springframework.transaction.annotation.Transactional;
+import java.text.Normalizer;
+import java.text.Normalizer.Form;
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class WeddingAgencyServiceImpl implements WeddingAgencyService {
@@ -74,7 +72,8 @@ public class WeddingAgencyServiceImpl implements WeddingAgencyService {
 
 	@Override
 	public Page<WeddingAgency> getAgenciesPageAdmin(final Integer page, final String sortField, final String sortDirection) {
-		return weddingAgencyCRUDService.findByDeleted(false, new PageRequest(page, 20, Direction.fromString(sortDirection), sortField));
+		return weddingAgencyCRUDService.findByDeleted(false, new PageRequest(page, 20, Direction.fromString(sortDirection)
+				, sortField));
 	}
 	
 	@Override

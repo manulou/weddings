@@ -1,15 +1,13 @@
 package com.manulsoftware.weddings.web.pages;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class FrontpageController {
+public class PagesController {
 
-	@RequestMapping({"/", "/agency/{id}"})
-	public String agencies(final Model model) {
-		model.addAttribute("application", "app");
-		return "agencies";
+	@RequestMapping({"/", "/secure", "/secure**", "/agency/**"})
+	public String landingPage() {
+		return "landingPage";
 	}
 }

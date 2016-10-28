@@ -9,10 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var agenciesService_1 = require("./services/agenciesService");
-var agenciesList_1 = require("./model/agenciesList");
-var app_constants_1 = require("./app.constants");
-var pageInfo_1 = require("./model/pageInfo");
+var agenciesService_1 = require("../services/agenciesService");
+var agenciesList_1 = require("../model/agenciesList");
+var app_constants_1 = require("../app.constants");
+var pageInfo_1 = require("../model/pageInfo");
 var AgenciesComponent = (function () {
     function AgenciesComponent(agenciesService) {
         this.agenciesService = agenciesService;
@@ -42,7 +42,7 @@ var AgenciesComponent = (function () {
         core_1.Component({
             selector: 'agencies',
             providers: [agenciesService_1.AgenciesService, app_constants_1.Configuration],
-            templateUrl: 'resources/js/angular/app/html/agencies.html'
+            templateUrl: 'resources/app/html/agencies.html'
         }), 
         __metadata('design:paramtypes', [agenciesService_1.AgenciesService])
     ], AgenciesComponent);

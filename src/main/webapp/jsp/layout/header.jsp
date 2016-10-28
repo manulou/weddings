@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="en" data-ng-app="weddingsApp">
   <head>
+    <base href="/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,30 +20,19 @@
 	<link rel="stylesheet" href="<c:url value="/resources/css/style.css" />" />
 	<link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
 
+    <script src="/resources/node_modules/core-js/client/shim.min.js"></script>
+    <script src="/resources/node_modules/zone.js/dist/zone.js"></script>
+    <script src="/resources/node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="/resources/node_modules/systemjs/dist/system.src.js"></script>
+    <!-- 2. Configure SystemJS -->
+    <script src="/resources/systemjs.config.js"></script>
+    <script>
+      System.import('resources/app').catch(function(err){ console.error(err); });
+    </script>
+
 	<script src="<c:url value="/resources/js/jquery-2.1.3.min.js" />"></script>
 	<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-	<script src="<c:url value="/resources/js/angular.min.js" />"></script>
     <script src="<c:url value="/resources/js/masonry.pkgd.min.js" />"></script>
 	<script src="<c:url value="/resources/js/scripts.js" />"></script>
 </head>
 <body>
-	<div id="urlPrefix" style="display:none"><c:url value="/" /></div>
-	
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="<c:url value="/" />">Home</a></li>
-            <li><a href="<c:url value="/search" />">Search</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>

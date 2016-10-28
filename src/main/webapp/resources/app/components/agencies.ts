@@ -1,13 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {Agency} from "./model/agency";
-import {AgenciesService} from "./services/agenciesService";
-import {AgenciesList} from "./model/agenciesList";
-import {Configuration} from "./app.constants";
-import {PageInfo} from "./model/pageInfo";
+import {AgenciesService} from "../services/agenciesService";
+import {AgenciesList} from "../model/agenciesList";
+import {Configuration} from "../app.constants";
+import {PageInfo} from "../model/pageInfo";
 @Component({
     selector: 'agencies',
     providers: [AgenciesService, Configuration],
-    templateUrl: 'resources/js/angular/app/html/agencies.html'
+    templateUrl: 'resources/app/html/agencies.html'
 })
 export class AgenciesComponent implements OnInit {
     public agencies: AgenciesList;

@@ -181,6 +181,41 @@
 					<testTarget>1.8</testTarget>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>exec-npm-install</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<workingDirectory>${project.basedir}/src/main/resources/js/angular</workingDirectory>
+							<executable>npm</executable>
+							<arguments>
+								<argument>install</argument>
+							</arguments>
+						</configuration>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>exec-npm-run-tsc</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<workingDirectory>${project.basedir}/src/main/resources/js/angular</workingDirectory>
+							<executable>npm</executable>
+							<arguments>
+								<argument>run</argument>
+								<argument>tsc</argument>
+							</arguments>
+						</configuration>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 		<finalName>weddingsearch</finalName>
 	</build>

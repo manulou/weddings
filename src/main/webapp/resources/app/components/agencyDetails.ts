@@ -1,21 +1,21 @@
 import {Component, OnInit, ChangeDetectorRef} from '@angular/core';
-import {Agency} from "./model/agency";
-import {AgenciesService} from "./services/agenciesService";
-import {Configuration} from "./app.constants";
+import {Agency} from "../model/agency";
+import {AgenciesService} from "../services/agenciesService";
+import {Configuration} from "../app.constants";
 import {ActivatedRoute} from "@angular/router";
-import {CategoriesService} from "./services/categoriesService";
-import {AttributesService} from "./services/attributesService";
-import {Category} from "./model/category";
-import {Attribute} from "./model/attribute";
-import {Package} from "./model/package";
-import {ImagesService} from "./services/imagesService";
-import {Image} from "./model/image";
+import {CategoriesService} from "../services/categoriesService";
+import {AttributesService} from "../services/attributesService";
+import {Category} from "../model/category";
+import {Attribute} from "../model/attribute";
+import {Package} from "../model/package";
+import {ImagesService} from "../services/imagesService";
+import {Image} from "../model/image";
 declare var $:any;
 
 @Component({
     selector: 'agencyDetails',
     providers: [AgenciesService, CategoriesService, AttributesService, ImagesService, Configuration],
-    templateUrl: 'resources/js/angular/app/html/agencyDetails.html'
+    templateUrl: 'resources/app/html/agencyDetails.html'
 })
 export class AgencyDetailsComponent implements OnInit {
     public agency : Agency;

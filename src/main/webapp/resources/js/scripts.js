@@ -1,10 +1,3 @@
-var weddingsApp = angular.module('weddingsApp', []);
-weddingsApp.factory('ContextService', function() {
-	return {
-		path : $('#urlPrefix').html()
-	};
-});
-
 function uploadFile(file, uploadUrl) {
 	hideErrors();
 	var fileName;
@@ -97,27 +90,7 @@ function handleProgress(e) {
 	}
 }
 
-function showError(message) {
-	hideErrors();
-	var html = '<div class="alert alert-danger" role="alert">' +
-		  '<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">&nbsp;</span>' +
-		  '<span id="errorMessage">' + message + '</span>' +
-		'</div>';
-	$(html).insertBefore('.main');
-}
 
-function showInfo(message) {
-	hideErrors();
-	var html = '<div class="alert alert-success fade in" role="alert">' +
-		  '<a href="#" class="close" data-dismiss="alert">&times;</a>' +
-		  '<strong>Success!</strong> <span id="infoMessage">' + message + '</span>' +
-		'</div>';
-	$(html).insertBefore('.main');
-}
-
-function hideErrors() {
-	$('.alert').remove();
-}
 
 function validate() {
 	hideErrors();

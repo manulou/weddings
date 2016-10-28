@@ -5,11 +5,14 @@
       <identifier-quote-string>&quot;</identifier-quote-string>
     </database-info>
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact"/>
-    <database-model serializer="dbm" rdbms="POSTGRES" format-version="2.5">
-      <database id="1" name="weddingsearch"/>
+    <database-model serializer="dbm" rdbms="POSTGRES" format-version="2.6">
+      <database id="1" name="weddingsearch">
+        <visible>1</visible>
+      </database>
       <schema id="2" parent="1" name="public">
         <object-id>2200</object-id>
         <comment>standard public schema</comment>
+        <visible>1</visible>
         <introspection-state-number>6276</introspection-state-number>
         <introspection-timestamp>2016-06-05.22:12:07.178</introspection-timestamp>
       </schema>
@@ -80,18 +83,18 @@
       <column id="19" parent="11" name="id">
         <state-number>4762</state-number>
         <mandatory>1</mandatory>
-        <data-type>integer</data-type>
+        <data-type>integer|0</data-type>
         <default-expression>nextval(&apos;attribute_id_seq&apos;::regclass)</default-expression>
       </column>
       <column id="20" parent="11" name="name">
         <state-number>4762</state-number>
         <mandatory>1</mandatory>
-        <data-type>varchar(100)</data-type>
+        <data-type>varchar(100)|0</data-type>
       </column>
       <column id="21" parent="11" name="category_id">
         <state-number>4766</state-number>
         <mandatory>1</mandatory>
-        <data-type>integer</data-type>
+        <data-type>integer|0</data-type>
       </column>
       <index id="22" parent="11" name="attribute_pkey">
         <object-id>139603</object-id>
@@ -120,18 +123,18 @@ category_id</columns>
       <column id="26" parent="12" name="id">
         <state-number>4760</state-number>
         <mandatory>1</mandatory>
-        <data-type>integer</data-type>
+        <data-type>integer|0</data-type>
         <default-expression>nextval(&apos;category_id_seq&apos;::regclass)</default-expression>
       </column>
       <column id="27" parent="12" name="name">
         <state-number>4760</state-number>
         <mandatory>1</mandatory>
-        <data-type>varchar(100)</data-type>
+        <data-type>varchar(100)|0</data-type>
       </column>
       <column id="28" parent="12" name="priority">
         <state-number>4788</state-number>
         <mandatory>1</mandatory>
-        <data-type>integer</data-type>
+        <data-type>integer|0</data-type>
         <default-expression>nextval(&apos;category_priority_seq&apos;::regclass)</default-expression>
       </column>
       <index id="29" parent="12" name="category_pkey">
@@ -154,17 +157,17 @@ category_id</columns>
       <column id="32" parent="13" name="id">
         <state-number>859</state-number>
         <mandatory>1</mandatory>
-        <data-type>smallint</data-type>
+        <data-type>smallint|0</data-type>
       </column>
       <column id="33" parent="13" name="code">
         <state-number>859</state-number>
         <mandatory>1</mandatory>
-        <data-type>varchar(2)</data-type>
+        <data-type>varchar(2)|0</data-type>
       </column>
       <column id="34" parent="13" name="name">
         <state-number>859</state-number>
         <mandatory>1</mandatory>
-        <data-type>varchar(100)</data-type>
+        <data-type>varchar(100)|0</data-type>
       </column>
       <index id="35" parent="13" name="pk_country">
         <object-id>16555</object-id>
@@ -180,36 +183,36 @@ category_id</columns>
       <column id="37" parent="14" name="id">
         <state-number>709</state-number>
         <mandatory>1</mandatory>
-        <data-type>integer</data-type>
+        <data-type>integer|0</data-type>
         <default-expression>nextval(&apos;image_id_seq&apos;::regclass)</default-expression>
       </column>
       <column id="38" parent="14" name="agency_id">
         <state-number>742</state-number>
         <mandatory>1</mandatory>
-        <data-type>integer</data-type>
+        <data-type>integer|0</data-type>
       </column>
       <column id="39" parent="14" name="content">
         <state-number>742</state-number>
         <mandatory>1</mandatory>
-        <data-type>bytea</data-type>
+        <data-type>bytea|0</data-type>
       </column>
       <column id="40" parent="14" name="thumbnail">
         <state-number>742</state-number>
         <mandatory>1</mandatory>
-        <data-type>boolean</data-type>
+        <data-type>boolean|0</data-type>
       </column>
       <column id="41" parent="14" name="related_image_id">
         <state-number>742</state-number>
-        <data-type>integer</data-type>
+        <data-type>integer|0</data-type>
       </column>
       <column id="42" parent="14" name="name">
         <state-number>743</state-number>
         <mandatory>1</mandatory>
-        <data-type>varchar(100)</data-type>
+        <data-type>varchar(100)|0</data-type>
       </column>
       <column id="43" parent="14" name="content_type">
         <state-number>747</state-number>
-        <data-type>varchar(40)</data-type>
+        <data-type>varchar(40)|0</data-type>
       </column>
       <index id="44" parent="14" name="pk_image">
         <object-id>16425</object-id>
@@ -236,23 +239,23 @@ category_id</columns>
       <column id="48" parent="15" name="id">
         <state-number>4764</state-number>
         <mandatory>1</mandatory>
-        <data-type>integer</data-type>
+        <data-type>integer|0</data-type>
         <default-expression>nextval(&apos;package_attribute_id_seq&apos;::regclass)</default-expression>
       </column>
       <column id="49" parent="15" name="category_id">
         <state-number>4764</state-number>
         <mandatory>1</mandatory>
-        <data-type>integer</data-type>
+        <data-type>integer|0</data-type>
       </column>
       <column id="50" parent="15" name="wedding_package_id">
         <state-number>4764</state-number>
         <mandatory>1</mandatory>
-        <data-type>integer</data-type>
+        <data-type>integer|0</data-type>
       </column>
       <column id="51" parent="15" name="attribute_id">
         <state-number>4764</state-number>
         <mandatory>1</mandatory>
-        <data-type>integer</data-type>
+        <data-type>integer|0</data-type>
       </column>
       <index id="52" parent="15" name="package_attribute_pkey">
         <object-id>139628</object-id>
@@ -284,16 +287,16 @@ category_id</columns>
       </foreign-key>
       <column id="57" parent="16" name="username">
         <state-number>708</state-number>
-        <data-type>varchar(20)</data-type>
+        <data-type>varchar(20)|0</data-type>
       </column>
       <column id="58" parent="16" name="password">
         <state-number>708</state-number>
-        <data-type>varchar(100)</data-type>
+        <data-type>varchar(100)|0</data-type>
       </column>
       <column id="59" parent="16" name="id">
         <state-number>708</state-number>
         <mandatory>1</mandatory>
-        <data-type>integer</data-type>
+        <data-type>integer|0</data-type>
         <default-expression>nextval(&apos;user_id_seq&apos;::regclass)</default-expression>
       </column>
       <index id="60" parent="16" name="pk_user">
@@ -310,44 +313,44 @@ category_id</columns>
       <column id="62" parent="17" name="id">
         <state-number>683</state-number>
         <mandatory>1</mandatory>
-        <data-type>integer</data-type>
+        <data-type>integer|0</data-type>
         <default-expression>nextval(&apos;wedding_agency_id_seq&apos;::regclass)</default-expression>
       </column>
       <column id="63" parent="17" name="name">
         <state-number>686</state-number>
-        <data-type>varchar(60)</data-type>
+        <data-type>varchar(60)|0</data-type>
       </column>
       <column id="64" parent="17" name="seolink">
         <state-number>710</state-number>
-        <data-type>varchar(60)</data-type>
+        <data-type>varchar(60)|0</data-type>
       </column>
       <column id="65" parent="17" name="created">
         <state-number>710</state-number>
-        <data-type>timestamp with time zone</data-type>
+        <data-type>timestamp with time zone|0</data-type>
       </column>
       <column id="66" parent="17" name="updated">
         <state-number>710</state-number>
-        <data-type>timestamp with time zone</data-type>
+        <data-type>timestamp with time zone|0</data-type>
       </column>
       <column id="67" parent="17" name="deleted">
         <state-number>724</state-number>
-        <data-type>boolean</data-type>
+        <data-type>boolean|0</data-type>
       </column>
       <column id="68" parent="17" name="country_id">
         <state-number>862</state-number>
-        <data-type>smallint</data-type>
+        <data-type>smallint|0</data-type>
       </column>
       <column id="69" parent="17" name="email">
         <state-number>862</state-number>
-        <data-type>varchar(100)</data-type>
+        <data-type>varchar(100)|0</data-type>
       </column>
       <column id="70" parent="17" name="phone">
         <state-number>862</state-number>
-        <data-type>varchar(30)</data-type>
+        <data-type>varchar(30)|0</data-type>
       </column>
       <column id="71" parent="17" name="visible">
         <state-number>6273</state-number>
-        <data-type>boolean</data-type>
+        <data-type>boolean|0</data-type>
         <default-expression>false</default-expression>
       </column>
       <index id="72" parent="17" name="pk_agency">
@@ -370,27 +373,27 @@ category_id</columns>
       <column id="75" parent="18" name="id">
         <state-number>4763</state-number>
         <mandatory>1</mandatory>
-        <data-type>integer</data-type>
+        <data-type>integer|0</data-type>
         <default-expression>nextval(&apos;wedding_package_id_seq&apos;::regclass)</default-expression>
       </column>
       <column id="76" parent="18" name="wedding_agency_id">
         <state-number>4763</state-number>
         <mandatory>1</mandatory>
-        <data-type>integer</data-type>
+        <data-type>integer|0</data-type>
       </column>
       <column id="77" parent="18" name="name">
         <state-number>4763</state-number>
         <mandatory>1</mandatory>
-        <data-type>varchar(100)</data-type>
+        <data-type>varchar(100)|0</data-type>
       </column>
       <column id="78" parent="18" name="price">
         <state-number>4763</state-number>
-        <data-type>numeric</data-type>
+        <data-type>numeric|0</data-type>
         <default-expression>0</default-expression>
       </column>
       <column id="79" parent="18" name="visible">
         <state-number>6276</state-number>
-        <data-type>boolean</data-type>
+        <data-type>boolean|0</data-type>
         <default-expression>false</default-expression>
       </column>
       <index id="80" parent="18" name="wedding_package_pkey">

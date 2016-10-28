@@ -6,12 +6,11 @@ import {Http, Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch';
 import {Observable} from 'rxjs/Rx';
-import {AgenciesList} from '../model/agenciesList';
 import {Configuration} from '../app.constants';
-import {Category} from "../model/category";
+import {Country} from "../model/country";
 
 @Injectable()
-export class CategoriesService {
+export class CountriesService {
 
     private actionUrl: string;
     private headers: Headers;
@@ -24,9 +23,9 @@ export class CategoriesService {
         this.headers.append('Accept', 'application/json');
     }
 
-    public getAll = (): Observable<Category[]> => {
-        return this._http.get(this.actionUrl + 'getCategories')
-            .map((response: Response) => <Category[]>response.json()).catch(this.handleError);
+    public getAll = (): Observable<Country[]> => {
+        return this._http.get(this.actionUrl + 'getCountries')
+            .map((response: Response) => <Country[]>response.json()).catch(this.handleError);
     }
 
 
