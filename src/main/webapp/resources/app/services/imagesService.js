@@ -26,6 +26,10 @@ var ImagesService = (function () {
             return _this._http.get(_this.actionUrl + 'agency/' + agencyId + '/thumbnails')
                 .map(function (response) { return response.json(); }).catch(_this.handleError);
         };
+        this.upload = function (id, formData) {
+            return _this._http.post(_this.configuration.SecureServerWithApiUrl + 'uploadImage/' + id, formData)
+                .map(function (response) { return response.json(); }).catch(_this.handleError);
+        };
         this.delete = function (id) {
             return _this._http.delete(_this.configuration.SecureServerWithApiUrl + 'deleteImage/' + id).catch(_this.handleError);
         };

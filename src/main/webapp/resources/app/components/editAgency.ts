@@ -1,8 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, ChangeDetectorRef} from '@angular/core';
 import {Agency} from "../model/agency";
 import {AgenciesService} from "../services/agenciesService";
 import {Configuration} from "../app.constants";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {CategoriesService} from "../services/categoriesService";
 import {AttributesService} from "../services/attributesService";
 import {Category} from "../model/category";
@@ -40,17 +40,21 @@ export class EditAgencyComponent implements OnInit {
     public newCategory : Category;
     public newAttribute : PackageAttribute;
 
-    constructor(private agenciesService: AgenciesService,
+    constructor(private router: Router,
+                private agenciesService: AgenciesService,
                 private categoriesService: CategoriesService,
                 private attributesService: AttributesService,
                 private imagesService: ImagesService,
                 private countriesService: CountriesService,
                 private packagesService: PackagesService,
                 private notifier: NotificationComponent,
+                private changeDetector: ChangeDetectorRef,
                 private route: ActivatedRoute) {}
 
     ngOnInit() {
         this.agency = new Agency();
+        this.agency.country = new Country();
+
         var id = this.route.snapshot.params['id'];
 
         this.newAgency = (id === 'new');
@@ -68,6 +72,8 @@ export class EditAgencyComponent implements OnInit {
             this.agenciesService.get(id)
                 .subscribe(agency => {
                     this.agency = agency;
+                    this.changeDetector.detectChanges();
+                    this.initDragAndDrop();
                 });
         } else {
             this.images = [];
@@ -89,8 +95,11 @@ export class EditAgencyComponent implements OnInit {
             var newAgency = true;
             this.agenciesService.save(this.agency)
                 .subscribe(agency => {
-                    this.agency = agency;
                     this.notifier.showInfo('Agency was saved successfully!')
+                    this.agency = agency;
+                    if (this.isNewAgency()) {
+                        this.router.navigate(['/secure/agency', agency.id]);
+                    }
                 });
         }
     };
@@ -202,4 +211,43 @@ export class EditAgencyComponent implements OnInit {
             pkg.attributes.push(newAttribute);
         }
     };
+
+    public upload(file: File) :void {
+        var formData = new FormData();
+        formData.append('file', file);
+        $('#drop-zone').html('Uploading, please wait...');
+        this.imagesService.upload(this.agency.id, formData).subscribe(image => {
+            this.images.push(image);
+            $('.progress').hide();
+            $('#drop-zone').html('Just drag and drop images here');
+            this.notifier.showInfo('Image was uploaded successfully!');
+        });
+    };
+
+    private initDragAndDrop(): void {
+        var component = this;
+        var dropZone = $('#drop-zone')[0];
+
+        dropZone.ondrop = function(e) {
+            e.preventDefault();
+            this.className = 'upload-drop-zone';
+
+            for (var i = 0; i < e.dataTransfer.files.length; i++) {
+                var file = e.dataTransfer.files[i];
+                component.upload(file);
+            }
+        }
+
+        dropZone.ondragover = function() {
+            this.className = 'upload-drop-zone drop';
+            return false;
+        }
+
+        dropZone.ondragleave = function() {
+            this.className = 'upload-drop-zone';
+            return false;
+        }
+
+        dropZone.ondrop.bind(this);
+    }
 }

@@ -21,11 +21,13 @@ var package_1 = require("../model/package");
 var imagesService_1 = require("../services/imagesService");
 var countriesService_1 = require("../services/countriesService");
 var forms_1 = require("@angular/forms");
+var country_1 = require("../model/country");
 var packageAttribute_1 = require("../model/packageAttribute");
 var packagesService_1 = require("../services/packagesService");
 var notificationService_1 = require("../services/notificationService");
 var EditAgencyComponent = (function () {
-    function EditAgencyComponent(agenciesService, categoriesService, attributesService, imagesService, countriesService, packagesService, notifier, route) {
+    function EditAgencyComponent(router, agenciesService, categoriesService, attributesService, imagesService, countriesService, packagesService, notifier, changeDetector, route) {
+        this.router = router;
         this.agenciesService = agenciesService;
         this.categoriesService = categoriesService;
         this.attributesService = attributesService;
@@ -33,11 +35,13 @@ var EditAgencyComponent = (function () {
         this.countriesService = countriesService;
         this.packagesService = packagesService;
         this.notifier = notifier;
+        this.changeDetector = changeDetector;
         this.route = route;
     }
     EditAgencyComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.agency = new agency_1.Agency();
+        this.agency.country = new country_1.Country();
         var id = this.route.snapshot.params['id'];
         this.newAgency = (id === 'new');
         this.newPackage = new package_1.Package();
@@ -52,6 +56,8 @@ var EditAgencyComponent = (function () {
             this.agenciesService.get(id)
                 .subscribe(function (agency) {
                 _this.agency = agency;
+                _this.changeDetector.detectChanges();
+                _this.initDragAndDrop();
             });
         }
         else {
@@ -73,8 +79,11 @@ var EditAgencyComponent = (function () {
             var newAgency = true;
             this.agenciesService.save(this.agency)
                 .subscribe(function (agency) {
-                _this.agency = agency;
                 _this.notifier.showInfo('Agency was saved successfully!');
+                _this.agency = agency;
+                if (_this.isNewAgency()) {
+                    _this.router.navigate(['/secure/agency', agency.id]);
+                }
             });
         }
     };
@@ -194,6 +203,40 @@ var EditAgencyComponent = (function () {
         }
     };
     ;
+    EditAgencyComponent.prototype.upload = function (file) {
+        var _this = this;
+        var formData = new FormData();
+        formData.append('file', file);
+        $('#drop-zone').html('Uploading, please wait...');
+        this.imagesService.upload(this.agency.id, formData).subscribe(function (image) {
+            _this.images.push(image);
+            $('.progress').hide();
+            $('#drop-zone').html('Just drag and drop images here');
+            _this.notifier.showInfo('Image was uploaded successfully!');
+        });
+    };
+    ;
+    EditAgencyComponent.prototype.initDragAndDrop = function () {
+        var component = this;
+        var dropZone = $('#drop-zone')[0];
+        dropZone.ondrop = function (e) {
+            e.preventDefault();
+            this.className = 'upload-drop-zone';
+            for (var i = 0; i < e.dataTransfer.files.length; i++) {
+                var file = e.dataTransfer.files[i];
+                component.upload(file);
+            }
+        };
+        dropZone.ondragover = function () {
+            this.className = 'upload-drop-zone drop';
+            return false;
+        };
+        dropZone.ondragleave = function () {
+            this.className = 'upload-drop-zone';
+            return false;
+        };
+        dropZone.ondrop.bind(this);
+    };
     __decorate([
         core_1.ViewChild('agencyForm'), 
         __metadata('design:type', forms_1.NgForm)
@@ -204,7 +247,7 @@ var EditAgencyComponent = (function () {
             providers: [agenciesService_1.AgenciesService, categoriesService_1.CategoriesService, attributesService_1.AttributesService, imagesService_1.ImagesService, countriesService_1.CountriesService, packagesService_1.PackagesService, notificationService_1.NotificationComponent, app_constants_1.Configuration],
             templateUrl: 'resources/app/html/editAgency.html'
         }), 
-        __metadata('design:paramtypes', [agenciesService_1.AgenciesService, categoriesService_1.CategoriesService, attributesService_1.AttributesService, imagesService_1.ImagesService, countriesService_1.CountriesService, packagesService_1.PackagesService, notificationService_1.NotificationComponent, router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [router_1.Router, agenciesService_1.AgenciesService, categoriesService_1.CategoriesService, attributesService_1.AttributesService, imagesService_1.ImagesService, countriesService_1.CountriesService, packagesService_1.PackagesService, notificationService_1.NotificationComponent, core_1.ChangeDetectorRef, router_1.ActivatedRoute])
     ], EditAgencyComponent);
     return EditAgencyComponent;
 }());

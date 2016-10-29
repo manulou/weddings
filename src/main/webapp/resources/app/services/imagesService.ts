@@ -28,6 +28,11 @@ export class ImagesService {
             .map((response: Response) => <Image[]>response.json()).catch(this.handleError);
     }
 
+    public upload = (id: number, formData: FormData): Observable<Image> => {
+        return this._http.post(this.configuration.SecureServerWithApiUrl + 'uploadImage/' + id, formData)
+            .map((response: Response) => <Image>response.json()).catch(this.handleError);
+    }
+
     public delete = (id: number): Observable<void> => {
         return this._http.delete(this.configuration.SecureServerWithApiUrl + 'deleteImage/' + id).catch(this.handleError);
     }

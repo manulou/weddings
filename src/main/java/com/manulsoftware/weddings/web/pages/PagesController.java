@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PagesController {
 
-	@RequestMapping({"/", "/secure", "/secure**", "/agency/**"})
+	@RequestMapping({"/", "/secure", "/secure/**", "/agency/**"})
 	public String landingPage() {
 		return "landingPage";
 	}

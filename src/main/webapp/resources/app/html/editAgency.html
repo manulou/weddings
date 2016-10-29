@@ -2,43 +2,44 @@
     <h1>Agency Details, id: {{agency.id}}</h1>
 
     <form #agencyForm="ngForm" novalidate class="form-horizontal" enctype="multipart/form-data">
+        <div *ngIf="agencyForm.invalid" class="has-error">The form has errors, please correct them</div>
         <div class="form-group">
-            <label class="col-sm-1 control-label" for="agencyName">Name</label> <!-- ngClass="{'has-error': agencyForm.name.$dirty && agencyForm.name.$invalid}" -->
-            <div class="col-xs-11 col-md-3"> <!-- ngClass="{'has-error': agencyForm.name.$dirty && agencyForm.name.$invalid}" -->
-                <input type="text" name="name" class="form-control"[(ngModel)]="agency.name" required id="agencyName" />
+            <label class="col-sm-1 control-label" [ngClass]="{'has-error' : name.dirty && name.invalid}">Name</label>
+            <div class="col-xs-11 col-md-3" [ngClass]="{'has-error' : name.dirty && name.invalid}">
+                <input type="text" name="name" class="form-control" [(ngModel)]="agency.name" required #name="ngModel" />
             </div>
-            <!--label class="col-sm-1 control-label" [ngClass]="{'has-error': agencyForm.country.$dirty &&
-            agencyForm.country.$invalid}">Country</label>
-            <div class="col-xs-11 col-md-3"  [ngClass]="{'has-error': agencyForm.country.$dirty && agencyForm.country.$invalid}">
-                <select name="country" class="form-control" [(ngModel)]="agency.country.id" required>
+            <label class="col-sm-1 control-label" 
+                   [ngClass]="{'has-error': country.dirty && country.invalid}">Country</label>
+            <div class="col-xs-11 col-md-3"  [ngClass]="{'has-error': country.dirty && country.invalid}">
+                <select name="country" class="form-control" [(ngModel)]="agency.country.id" required #country="ngModel">
                     <option *ngFor="let country of countries" value="{{country.id}}">{{country.name}}</option>
                 </select>
             </div>
             <div class="col-sm-4 text-left">
                 <input type="checkbox" name="visible" [(ngModel)]="agency.visible" /> Visible
-            </div-->
-        </div>
-        <!--div class="form-group">
-            <label class="col-sm-1 control-label" [ngClass]="{'has-error': agencyForm.email.$dirty && agencyForm.email.$invalid}">Email</label>
-            <div class="col-xs-11 col-md-3" [ngClass]="{'has-error': agencyForm.email.$dirty && agencyForm.email.$invalid}">
-                <input type="email" name="email" class="form-control" [(ngModel)]="agency.email" required />
             </div>
-            <label class="col-sm-1 control-label" [ngClass]="{'has-error': agencyForm.phone.$dirty && agencyForm.phone.$invalid}">Phone</label>
-            <div class="col-xs-11 col-md-3"  [ngClass]="{'has-error': agencyForm.phone.$dirty && agencyForm.phone.$invalid}">
-                <input type="text" name="phone" class="form-control" [(ngModel)]="agency.phone" />
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label" [ngClass]="{'has-error': email.dirty && email.invalid}">Email</label>
+            <div class="col-xs-11 col-md-3" [ngClass]="{'has-error': email.dirty && email.invalid}">
+                <input type="email" name="email" class="form-control" [(ngModel)]="agency.email" required #email="ngModel" />
+            </div>
+            <label class="col-sm-1 control-label" [ngClass]="{'has-error': phone.dirty && phone.invalid}">Phone</label>
+            <div class="col-xs-11 col-md-3"  [ngClass]="{'has-error': phone.dirty && phone.invalid}">
+                <input type="text" name="phone" class="form-control" [(ngModel)]="agency.phone" #phone="ngModel" />
             </div>
         </div>
         <hr />
         <ng-container *ngFor="let package of agency?.packages">
             <div class="form-group" *ngIf="id != null">
                 <h2 class="col-md-12">{{package.name}}</h2>
-                <label class="col-sm-1 control-label" [ngClass]="{'has-error': agencyForm.packageName.$dirty && agencyForm.packageName.$invalid}">Package name</label>
-                <div class="col-xs-11 col-md-3" [ngClass]="{'has-error': agencyForm.packageName.$dirty && agencyForm.packageName.$invalid}">
-                    <input type="text" name="packageName" class="form-control" [(ngModel)]="package.name" required />
+                <label class="col-sm-1 control-label" [ngClass]="{'has-error': packageName.dirty && packageName.invalid}">Package name</label>
+                <div class="col-xs-11 col-md-3" [ngClass]="{'has-error': packageName.dirty && packageName.invalid}">
+                    <input type="text" name="packageName" class="form-control" [(ngModel)]="package.name" required #packageName="ngModel" />
                 </div>
-                <label class="col-sm-1 control-label" [ngClass]="{'has-error': agencyForm.packagePrice.$dirty && agencyForm.packagePrice.$invalid}">Price</label>
-                <div class="col-xs-11 col-md-3" [ngClass]="{'has-error': agencyForm.packagePrice.$dirty && agencyForm.packagePrice.$invalid}">
-                    <input type="number" name="packagePrice" class="form-control" [(ngModel)]="package.price" />
+                <label class="col-sm-1 control-label" [ngClass]="{'has-error': packagePrice.dirty && packagePrice.invalid}">Price</label>
+                <div class="col-xs-11 col-md-3" [ngClass]="{'has-error': packagePrice.dirty && packagePrice.invalid}">
+                    <input type="number" name="packagePrice" class="form-control" [(ngModel)]="package.price" #packagePrice="ngModel" />
                 </div>
                 <div class="col-sm-2 text-left">
                     <input type="checkbox" name="visible" [(ngModel)]="package.visible" /> Visible
@@ -50,9 +51,9 @@
 
             <ng-container *ngFor="let category of categories">
                 <div class="form-group" *ngIf="id != null">
-                    <label class="col-sm-1 control-label" [ngClass]="{'has-error': agencyForm.categoryName.$dirty && agencyForm.categoryName.$invalid}">Category:</label>
-                    <div class="col-md-3 text-left" [ngClass]="{'has-error': agencyForm.categoryName.$dirty && agencyForm.categoryName.$invalid}">
-                        <input type="text" name="categoryName" class="form-control" [(ngModel)]="category.name" required />
+                    <label class="col-sm-1 control-label" [ngClass]="{'has-error': categoryName.dirty && categoryName.invalid}">Category:</label>
+                    <div class="col-md-3 text-left" [ngClass]="{'has-error': categoryName.dirty && categoryName.invalid}">
+                        <input type="text" name="categoryName" class="form-control" [(ngModel)]="category.name" required #categoryName="ngModel" />
                     </div>
                     <label class="col-sm-1 control-label">New attribute:</label>
                     <div class="col-xs-11 col-md-3">
@@ -65,7 +66,8 @@
                 <div class="form-group" *ngIf="id != null">
                     <ng-container *ngFor="let attribute of attributes">
                         <div class="col-sm-2 text-left" *ngIf="attribute.categoryId == category.id">
-                            <input type="checkbox" data-ng-checked="packageHasAttribute(package, attribute)" (click)="toggleAttributeInPackage(attribute, package, category)" /> {{attribute.name}}
+                            <input type="checkbox" [checked]="packageHasAttribute(package, attribute)"
+                                   (click)="toggleAttributeInPackage(attribute, package, category)" /> {{attribute.name}}
                         </div>
                     </ng-container>
                 </div>
@@ -73,7 +75,7 @@
             </ng-container>
             <hr />
         </ng-container>
-        <div class="form-group" *ngIf="id != null">
+        <div class="form-group" *ngIf="agency.id != null">
             <label class="col-sm-1 control-label">Package name</label>
             <div class="col-xs-11 col-md-3">
                 <input type="text" name="newPackageName" class="form-control" [(ngModel)]="newPackage.name" />
@@ -86,7 +88,7 @@
                 <a href="javascript:;" class="btn btn-success" (click)="addPackage(newPackage)" role="button">Add package</a>
             </div>
         </div>
-        <div class="form-group" *ngIf="id != null">
+        <div class="form-group" *ngIf="agency.id != null">
             <label class="col-sm-1 control-label">Category name</label>
             <div class="col-xs-11 col-md-3">
                 <input type="text" name="newCategoryName" class="form-control" [(ngModel)]="newCategory.name" />
@@ -96,7 +98,7 @@
             </div>
         </div>
         <h4 class="dragAndDropSupported">Drag and drop images below</h4>
-        <div *ngIf="id != null" class="ng-hide" class="form-group dragAndDropSupported">
+        <div *ngIf="agency.id != null" class="ng-hide" class="form-group dragAndDropSupported">
             <label class="col-sm-1 control-label"></label>
             <div class="col-xs-12 col-md-11">
                 <div class="upload-drop-zone" id="drop-zone">Just drag and drop images here</div>
@@ -121,7 +123,7 @@
                     </p>
                 </div>
             </div>
-        </div-->
+        </div>
         <div class="form-group">
             <button id="backButton" class="btn btn-primary btn-lg" routerLink="/secure">Back</button>
             <button id="submitButton" (click)="save(agency)" type="submit" data-loading-text="Just a sec..." class="btn btn-success btn-lg" >Save</button>
