@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9348d067-1095-4d0e-82c6-95b9e65ceb17" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/secureAgencyDetails.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/angular.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/web/agencies.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/web/agencyDetails.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/web/secure/secureAgencies.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/web/secure/secureAgencyDetails.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/web/pages/PagesController.java" afterPath="$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/web/pages/PagesController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/app.module.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/app.module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/app.module.js.map" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/app.module.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/app.module.ts" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/app.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/app.routes.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/app.routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/app.routes.js.map" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/app.routes.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/app.routes.ts" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/app.routes.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/components/editAgency.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/components/editAgency.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/components/editAgency.js.map" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/components/editAgency.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/components/editAgency.ts" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/components/editAgency.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/html/editAgency.html" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/html/editAgency.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/services/imagesService.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/services/imagesService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/services/imagesService.js.map" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/services/imagesService.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/services/imagesService.ts" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/services/imagesService.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" />
     </list>
     <ignored path="weddings.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1195,7 +1174,7 @@
       <workItem from="1477325423949" duration="5577000" />
       <workItem from="1477668176515" duration="1076000" />
       <workItem from="1477677583493" duration="3924000" />
-      <workItem from="1477734354285" duration="8112000" />
+      <workItem from="1477734354285" duration="8143000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit for package/category/attribute support">
       <created>1462829010274</created>
@@ -1225,11 +1204,18 @@
       <option name="project" value="LOCAL" />
       <updated>1477668993471</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Angular 2 edit agency">
+      <created>1477743117682</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1477743117682</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114435000" />
+    <option name="totallyTimeSpent" value="114466000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1241,7 +1227,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="3862" height="2122" extended-state="6" />
+    <frame x="-11" y="-11" width="3862" height="2122" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1293,7 +1279,8 @@
     <MESSAGE value="Initial commit for package/category/attribute support" />
     <MESSAGE value="git ignore node_modules folder" />
     <MESSAGE value="Angular 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Angular 2" />
+    <MESSAGE value="Angular 2 edit agency" />
+    <option name="LAST_COMMIT_MESSAGE" value="Angular 2 edit agency" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
