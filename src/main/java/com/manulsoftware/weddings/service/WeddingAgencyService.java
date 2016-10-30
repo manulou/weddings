@@ -1,10 +1,9 @@
 package com.manulsoftware.weddings.service;
 
-import java.util.List;
-
+import com.manulsoftware.weddings.entity.WeddingAgency;
 import org.springframework.data.domain.Page;
 
-import com.manulsoftware.weddings.entity.WeddingAgency;
+import java.util.List;
 
 public interface WeddingAgencyService {
 	
@@ -19,6 +18,8 @@ public interface WeddingAgencyService {
 	Page<WeddingAgency> getAgenciesPageAdmin(final Integer page, final String sortField, final String sortDirection);
 	
 	WeddingAgency findOne(final Integer id);
+
+	WeddingAgency findOneBySeolink(final String seolink);
 	
 	void delete(final Integer id);
 	

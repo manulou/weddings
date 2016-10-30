@@ -80,7 +80,12 @@ public class WeddingAgencyServiceImpl implements WeddingAgencyService {
 	public WeddingAgency findOne(final Integer id) {
 		return weddingAgencyCRUDService.findOne(id);
 	}
-	
+
+	@Override
+	public WeddingAgency findOneBySeolink(String seolink) {
+		return weddingAgencyCRUDService.findOneBySeolink(seolink);
+	}
+
 	@Override
 	public void delete(Integer id) {
 		final WeddingAgency agency = findOne(id);

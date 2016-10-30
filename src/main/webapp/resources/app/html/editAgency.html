@@ -51,10 +51,9 @@
 
             <ng-container *ngFor="let category of categories">
                 <div class="form-group" *ngIf="id != null">
-                    <label class="col-sm-1 control-label" [ngClass]="{'has-error': categoryName.dirty && categoryName.invalid}">Category:</label>
-                    <div class="col-md-3 text-left" [ngClass]="{'has-error': categoryName.dirty && categoryName.invalid}">
-                        <input type="text" name="categoryName" class="form-control" [(ngModel)]="category.name" required #categoryName="ngModel" />
-                    </div>
+                    <label class="col-sm-1 control-label">Category:</label>
+                    <h4 class="col-md-3 text-left" style="font-weight: bold; color: darkblue">{{category.name}}</h4>
+
                     <label class="col-sm-1 control-label">New attribute:</label>
                     <div class="col-xs-11 col-md-3">
                         <input type="text" class="form-control" name="newAttributeName" [(ngModel)]="newAttribute.attribute.name" />

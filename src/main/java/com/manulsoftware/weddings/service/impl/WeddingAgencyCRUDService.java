@@ -1,13 +1,12 @@
 package com.manulsoftware.weddings.service.impl;
 
-import java.util.List;
-
+import com.manulsoftware.weddings.entity.WeddingAgency;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Service;
 
-import com.manulsoftware.weddings.entity.WeddingAgency;
+import java.util.List;
 
 @Service
 public interface WeddingAgencyCRUDService extends PagingAndSortingRepository<WeddingAgency, Integer> {
@@ -22,4 +21,6 @@ public interface WeddingAgencyCRUDService extends PagingAndSortingRepository<Wed
 	Page<WeddingAgency> findByDeleted(boolean deleted, Pageable pageable);
 	
 	WeddingAgency findOne(final Integer id);
+
+	WeddingAgency findOneBySeolink(final String seolink);
 }

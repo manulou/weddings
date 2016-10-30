@@ -1,12 +1,13 @@
 package com.manulsoftware.weddings.web.services;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import com.manulsoftware.weddings.entity.Attribute;
 import com.manulsoftware.weddings.entity.Category;
-import com.manulsoftware.weddings.entity.WeddingPackage;
-import com.manulsoftware.weddings.service.*;
+import com.manulsoftware.weddings.entity.WeddingAgency;
+import com.manulsoftware.weddings.service.AttributeService;
+import com.manulsoftware.weddings.service.CategoryService;
+import com.manulsoftware.weddings.service.PaginatedList;
+import com.manulsoftware.weddings.service.WeddingAgencyService;
+import com.manulsoftware.weddings.service.WeddingPackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.manulsoftware.weddings.entity.WeddingAgency;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class AgencyRESTfulService {
@@ -42,6 +44,14 @@ public class AgencyRESTfulService {
 	@ResponseBody
 	public WeddingAgency getAgency(@PathVariable Integer id) {
 		final WeddingAgency agency = weddingAgencyService.findOne(id);
+		filterPackages(agency);
+		return agency;
+	}
+
+	@RequestMapping("/getAgencyBySeolink/{seolink}")
+	@ResponseBody
+	public WeddingAgency getAgencyBySeolink(@PathVariable String seolink) {
+		final WeddingAgency agency = weddingAgencyService.findOneBySeolink(seolink);
 		filterPackages(agency);
 		return agency;
 	}

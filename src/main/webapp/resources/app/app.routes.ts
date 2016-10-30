@@ -11,7 +11,7 @@ import { EditAgencyComponent } from "./components/editAgency";
 
 const routes: Routes = [
     { path: '', component: AgenciesComponent },
-    { path: 'agency/:id', component: AgencyDetailsComponent },
+    { path: 'agency/:seolink', component: AgencyDetailsComponent },
     { path: 'secure', component: SecureAgenciesComponent },
     { path: 'secure/agency/:id', component: EditAgencyComponent },
 ];

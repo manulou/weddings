@@ -9,5 +9,6 @@ export class Agency {
     public country : Country;
     public email : string;
     public phone : string;
+    public seolink : string;
     public packages : Package[];
 }

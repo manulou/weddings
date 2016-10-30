@@ -1,4 +1,4 @@
-<div class="main" data-ng-init="init('${empty id ? 'unknown' : id}')">
+<div class="main">
 
     <h1>{{agency?.name}}</h1>
 
@@ -19,13 +19,13 @@
     <ng-container *ngFor="let package of agency?.packages">
         <div class="row">
             <div class="col-md-6 text-left">
-                <h2>{{package.name}}</h2>
+                <h2><a href="javascript:;" onclick="togglePackage(this)">{{package.name}}</a></h2>
             </div>
             <div class="col-md-6 text-right">
-                <h2>{{package.price}} EUR</h2>
+                <h2><a href="javascript:;" onclick="togglePackage(this)">{{package.price}} EUR</a></h2>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="display:none">
             <div class="categories">
                 <div class="col-md-3 col-xs-12 col-sm-4 category" *ngFor="let category of categories">
                     <div class="panel panel-default">
@@ -58,12 +58,8 @@
         </div>
         <hr class="col-md-12" />
     </ng-container>
-    <div class="col-sm-2" *ngFor="let image of images">
-        <div class="thumbnail">
-            <a href="/image/{{image.relatedImageId}}" target="_blank">
-                <img [src]="'/image/' + image.id" alt="{{image.name}}" />
-            </a>
-        </div>
+    <div class="fotorama"data-width="100%" data-ratio="800/600" data-nav="thumbs" data-autoplay="3000">
+        <a href="/image/{{image.relatedImageId}}" title="/image/{{image.id}}" *ngFor="let image of images"></a>
     </div>
 </div>
 <div class="col-md-12 text-center">

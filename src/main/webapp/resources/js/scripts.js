@@ -30,3 +30,14 @@ function showInfo(message) {
 function hideErrors() {
     $('.alert').remove();
 }
+
+function initMasonry(categories) {
+    categories.masonry({itemSelector: '.category', percentPosition: true, columnWidth: '.category' });
+}
+
+function togglePackage(tr) {
+    var categoriesDiv = $(tr).parent().parent().parent().next();
+    categoriesDiv.toggle();
+    initMasonry(categoriesDiv.find('.categories'));
+    return false;
+}

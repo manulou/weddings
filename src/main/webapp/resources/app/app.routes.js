@@ -19,7 +19,7 @@ var secureAgencies_1 = require("./components/secureAgencies");
 var editAgency_1 = require("./components/editAgency");
 var routes = [
     { path: '', component: agencies_1.AgenciesComponent },
-    { path: 'agency/:id', component: agencyDetails_1.AgencyDetailsComponent },
+    { path: 'agency/:seolink', component: agencyDetails_1.AgencyDetailsComponent },
     { path: 'secure', component: secureAgencies_1.SecureAgenciesComponent },
     { path: 'secure/agency/:id', component: editAgency_1.EditAgencyComponent },
 ];

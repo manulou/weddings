@@ -40,6 +40,10 @@ var AgenciesService = (function () {
             return _this._http.get(_this.configuration.ServerWithApiUrl + 'getAgency/' + id)
                 .map(function (response) { return response.json(); }).catch(_this.handleError);
         };
+        this.getBySeolink = function (seolink) {
+            return _this._http.get(_this.configuration.ServerWithApiUrl + 'getAgencyBySeolink/' + seolink)
+                .map(function (response) { return response.json(); }).catch(_this.handleError);
+        };
         this.save = function (agency) {
             return _this._http.post(_this.configuration.SecureServerWithApiUrl + 'saveAgency', agency)
                 .map(function (response) { return response.json(); }).catch(_this.handleError);

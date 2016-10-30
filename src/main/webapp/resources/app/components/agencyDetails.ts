@@ -31,17 +31,19 @@ export class AgencyDetailsComponent implements OnInit {
                 private route: ActivatedRoute) {}
 
     ngOnInit() {
-        this.imagesService.getThumbnails(this.route.snapshot.params['id'])
-            .subscribe(images => this.images = images);
         this.categoriesService.getAll()
             .subscribe(categories => this.categories = categories);
         this.attributesService.getAll()
             .subscribe(attributes => this.attributes = attributes);
-        this.agenciesService.get(this.route.snapshot.params['id'])
+        this.agenciesService.getBySeolink(this.route.snapshot.params['seolink'])
             .subscribe(agency => {
                 this.agency = agency;
-                this.changeDetector.detectChanges();
-                initMasonry();
+                this.imagesService.getThumbnails(this.agency.id)
+                    .subscribe(images => {
+                        this.images = images;
+                        this.changeDetector.detectChanges();
+                        initFotorama();
+                    });
             });
     }
 
@@ -55,6 +57,9 @@ export class AgencyDetailsComponent implements OnInit {
     }
 }
 
-function initMasonry() {
-    $('.categories').masonry({itemSelector: '.category', percentPosition: true, columnWidth: '.category' });
+function initFotorama() {
+    $('.fotorama').find('a').each(function() {
+        $(this).prop('data-thumb', $(this).prop('title'));
+    });
+    $('.fotorama').fotorama();
 }

@@ -26,17 +26,19 @@ var AgencyDetailsComponent = (function () {
     }
     AgencyDetailsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.imagesService.getThumbnails(this.route.snapshot.params['id'])
-            .subscribe(function (images) { return _this.images = images; });
         this.categoriesService.getAll()
             .subscribe(function (categories) { return _this.categories = categories; });
         this.attributesService.getAll()
             .subscribe(function (attributes) { return _this.attributes = attributes; });
-        this.agenciesService.get(this.route.snapshot.params['id'])
+        this.agenciesService.getBySeolink(this.route.snapshot.params['seolink'])
             .subscribe(function (agency) {
             _this.agency = agency;
-            _this.changeDetector.detectChanges();
-            initMasonry();
+            _this.imagesService.getThumbnails(_this.agency.id)
+                .subscribe(function (images) {
+                _this.images = images;
+                _this.changeDetector.detectChanges();
+                initFotorama();
+            });
         });
     };
     AgencyDetailsComponent.prototype.hasAttributesForCategory = function (weddingPackage, category) {
@@ -58,7 +60,10 @@ var AgencyDetailsComponent = (function () {
     return AgencyDetailsComponent;
 }());
 exports.AgencyDetailsComponent = AgencyDetailsComponent;
-function initMasonry() {
-    $('.categories').masonry({ itemSelector: '.category', percentPosition: true, columnWidth: '.category' });
+function initFotorama() {
+    $('.fotorama').find('a').each(function () {
+        $(this).prop('data-thumb', $(this).prop('title'));
+    });
+    $('.fotorama').fotorama();
 }
 //# sourceMappingURL=agencyDetails.js.map
