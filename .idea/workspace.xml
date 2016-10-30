@@ -2,32 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9348d067-1095-4d0e-82c6-95b9e65ceb17" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/fotorama.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/fotorama@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/fotorama.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/fotorama.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/service/WeddingAgencyService.java" afterPath="$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/service/WeddingAgencyService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/service/impl/WeddingAgencyCRUDService.java" afterPath="$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/service/impl/WeddingAgencyCRUDService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/service/impl/WeddingAgencyServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/service/impl/WeddingAgencyServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/web/services/AgencyRESTfulService.java" afterPath="$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/web/services/AgencyRESTfulService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/layout/header.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/layout/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/app.routes.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/app.routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/app.routes.js.map" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/app.routes.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/app.routes.ts" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/app.routes.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/components/agencyDetails.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/components/agencyDetails.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/components/agencyDetails.js.map" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/components/agencyDetails.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/components/agencyDetails.ts" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/components/agencyDetails.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/html/agencies.html" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/html/agencies.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/html/agencyDetails.html" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/html/agencyDetails.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/html/editAgency.html" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/html/editAgency.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/model/agency.js.map" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/model/agency.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/model/agency.ts" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/model/agency.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/services/agenciesService.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/services/agenciesService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/services/agenciesService.js.map" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/services/agenciesService.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/app/services/agenciesService.ts" afterPath="$PROJECT_DIR$/src/main/webapp/resources/app/services/agenciesService.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/scripts.js" />
     </list>
     <ignored path="weddings.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,34 +31,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="agencyDetails.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="agencyDetails.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/app/components/agencyDetails.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1010">
+            <state relative-caret-position="1132">
               <caret line="61" column="8" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="8" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="editAgency.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/app/components/editAgency.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-775">
-              <caret line="74" column="56" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="editAgency.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/app/html/editAgency.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="54" column="92" selection-start-line="54" selection-start-column="92" selection-end-line="54" selection-end-column="92" />
-              <folding>
-                <element signature="n#style#0;n#h4#0;n#div#0;n#ng-container#0;n#ng-container#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -1379,7 +1332,7 @@
       <workItem from="1477668176515" duration="1076000" />
       <workItem from="1477677583493" duration="3924000" />
       <workItem from="1477734354285" duration="9038000" />
-      <workItem from="1477825438944" duration="5251000" />
+      <workItem from="1477825438944" duration="5295000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit for package/category/attribute support">
       <created>1462829010274</created>
@@ -1416,11 +1369,18 @@
       <option name="project" value="LOCAL" />
       <updated>1477743117682</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="UI improvements/gallery">
+      <created>1477832297158</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1477832297158</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120612000" />
+    <option name="totallyTimeSpent" value="120656000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1432,8 +1392,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="3862" height="2122" extended-state="6" />
-    <editor active="false" />
+    <frame x="-11" y="-11" width="3862" height="2122" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3791157" sideWeight="0.2813059" order="7" side_tool="true" content_ui="tabs" />
@@ -1452,7 +1412,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27433628" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27433628" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951587" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951587" sideWeight="0.49893954" order="7" side_tool="false" content_ui="tabs" />
@@ -1481,11 +1441,14 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Initial commit for package/category/attribute support" />
     <MESSAGE value="git ignore node_modules folder" />
     <MESSAGE value="Angular 2" />
     <MESSAGE value="Angular 2 edit agency" />
-    <option name="LAST_COMMIT_MESSAGE" value="Angular 2 edit agency" />
+    <MESSAGE value="UI improvements/gallery" />
+    <option name="LAST_COMMIT_MESSAGE" value="UI improvements/gallery" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1855,11 +1818,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/app/components/agencyDetails.ts">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/app/html/editAgency.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1010">
-          <caret line="61" column="8" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="930">
+          <caret line="60" column="62" selection-start-line="60" selection-start-column="62" selection-end-line="60" selection-end-column="62" />
+          <folding>
+            <element signature="n#style#0;n#h4#0;n#div#0;n#ng-container#0;n#ng-container#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1871,13 +1836,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/app/html/editAgency.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/app/components/agencyDetails.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="54" column="92" selection-start-line="54" selection-start-column="92" selection-end-line="54" selection-end-column="92" />
-          <folding>
-            <element signature="n#style#0;n#h4#0;n#div#0;n#ng-container#0;n#ng-container#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="1132">
+          <caret line="61" column="8" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
