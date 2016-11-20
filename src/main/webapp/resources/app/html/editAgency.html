@@ -1,8 +1,10 @@
 <div class="main">
-    <h1>Agency Details, id: {{agency.id}}</h1>
+    <h1>Edit Agency: {{agency.name}}</h1>
 
     <form #agencyForm="ngForm" novalidate class="form-horizontal" enctype="multipart/form-data">
-        <div *ngIf="agencyForm.invalid" class="has-error">The form has errors, please correct them</div>
+        <div *ngIf="agencyForm.invalid" class="form-group">
+            <label class="control-label has-error col-xs-12">The form has errors, please correct them</label>
+        </div>
         <div class="form-group">
             <label class="col-sm-1 control-label" [ngClass]="{'has-error' : name.dirty && name.invalid}">Name</label>
             <div class="col-xs-11 col-md-3" [ngClass]="{'has-error' : name.dirty && name.invalid}">
@@ -16,13 +18,18 @@
                 </select>
             </div>
             <div class="col-sm-4 text-left">
-                <input type="checkbox" name="visible" [(ngModel)]="agency.visible" /> Visible
+                <input type="checkbox" name="agencyVisible" [(ngModel)]="agency.visible" #agencyVisible="ngModel" />
+                Visible
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-1 control-label" [ngClass]="{'has-error': email.dirty && email.invalid}">Email</label>
             <div class="col-xs-11 col-md-3" [ngClass]="{'has-error': email.dirty && email.invalid}">
                 <input type="email" name="email" class="form-control" [(ngModel)]="agency.email" required #email="ngModel" />
+            </div>
+            <label class="col-sm-1 control-label" [ngClass]="{'has-error': website.dirty && website.invalid}">Website</label>
+            <div class="col-xs-11 col-md-3"  [ngClass]="{'has-error': website.dirty && website.invalid}">
+                <input type="text" name="website" class="form-control" [(ngModel)]="agency.website" #website="ngModel" />
             </div>
             <label class="col-sm-1 control-label" [ngClass]="{'has-error': phone.dirty && phone.invalid}">Phone</label>
             <div class="col-xs-11 col-md-3"  [ngClass]="{'has-error': phone.dirty && phone.invalid}">
@@ -42,7 +49,7 @@
                     <input type="number" name="packagePrice" class="form-control" [(ngModel)]="package.price" #packagePrice="ngModel" />
                 </div>
                 <div class="col-sm-2 text-left">
-                    <input type="checkbox" name="visible" [(ngModel)]="package.visible" /> Visible
+                    <input type="checkbox" name="packageVisible" [(ngModel)]="package.visible" /> Visible
                 </div>
                 <div class="col-xs-11 col-md-2 text-left">
                     <a href="javascript:;" class="btn btn-danger" (click)="deletePackage(package)" role="button">Delete package</a>

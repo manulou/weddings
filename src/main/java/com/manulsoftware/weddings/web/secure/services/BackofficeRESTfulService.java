@@ -4,6 +4,7 @@ import com.manulsoftware.weddings.entity.Attribute;
 import com.manulsoftware.weddings.entity.Category;
 import com.manulsoftware.weddings.entity.WeddingAgency;
 import com.manulsoftware.weddings.service.*;
+import com.manulsoftware.weddings.service.impl.WeddingPackageCRUDService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -22,7 +23,7 @@ public class BackofficeRESTfulService {
 	AttributeService attributeService;
 
 	@Autowired
-	WeddingPackageService weddingPackageService;
+	WeddingPackageCRUDService weddingPackageService;
 
 	@RequestMapping("/secure/getAgency/{id}")
 	@ResponseBody

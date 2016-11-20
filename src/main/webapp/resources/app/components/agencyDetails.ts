@@ -11,6 +11,7 @@ import {Package} from "../model/package";
 import {ImagesService} from "../services/imagesService";
 import {Image} from "../model/image";
 declare var $:any;
+declare var initMasonry:any;
 
 @Component({
     selector: 'agencyDetails',
@@ -22,6 +23,7 @@ export class AgencyDetailsComponent implements OnInit {
     public categories : Category[];
     public attributes : Attribute[];
     public images : Image[];
+    public activePackage: string;
 
     constructor(private agenciesService: AgenciesService,
                 private categoriesService: CategoriesService,
@@ -35,9 +37,14 @@ export class AgencyDetailsComponent implements OnInit {
             .subscribe(categories => this.categories = categories);
         this.attributesService.getAll()
             .subscribe(attributes => this.attributes = attributes);
+        this.activePackage = this.route.snapshot.queryParams['package'];
         this.agenciesService.getBySeolink(this.route.snapshot.params['seolink'])
             .subscribe(agency => {
                 this.agency = agency;
+                if (this.activePackage) {
+                    this.changeDetector.detectChanges();
+                    initMasonryForCurrentPackage(this.activePackage);
+                }
                 this.imagesService.getThumbnails(this.agency.id)
                     .subscribe(images => {
                         this.images = images;
@@ -62,4 +69,8 @@ function initFotorama() {
         $(this).prop('data-thumb', $(this).prop('title'));
     });
     $('.fotorama').fotorama();
+}
+
+function initMasonryForCurrentPackage(packageId) {
+    initMasonry($('#packageRow' + packageId).find('.categories'));
 }

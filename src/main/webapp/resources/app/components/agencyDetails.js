@@ -30,9 +30,14 @@ var AgencyDetailsComponent = (function () {
             .subscribe(function (categories) { return _this.categories = categories; });
         this.attributesService.getAll()
             .subscribe(function (attributes) { return _this.attributes = attributes; });
+        this.activePackage = this.route.snapshot.queryParams['package'];
         this.agenciesService.getBySeolink(this.route.snapshot.params['seolink'])
             .subscribe(function (agency) {
             _this.agency = agency;
+            if (_this.activePackage) {
+                _this.changeDetector.detectChanges();
+                initMasonryForCurrentPackage(_this.activePackage);
+            }
             _this.imagesService.getThumbnails(_this.agency.id)
                 .subscribe(function (images) {
                 _this.images = images;
@@ -65,5 +70,8 @@ function initFotorama() {
         $(this).prop('data-thumb', $(this).prop('title'));
     });
     $('.fotorama').fotorama();
+}
+function initMasonryForCurrentPackage(packageId) {
+    initMasonry($('#packageRow' + packageId).find('.categories'));
 }
 //# sourceMappingURL=agencyDetails.js.map

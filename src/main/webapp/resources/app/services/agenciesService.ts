@@ -8,7 +8,7 @@ import 'rxjs/add/operator/catch';
 import {Observable} from 'rxjs/Rx';
 import {AgenciesList} from '../model/agenciesList';
 import {Configuration} from '../app.constants';
-import {PageInfo} from "../model/pageInfo";
+import {PageInfo} from "../model/helper/pageInfo";
 import {Agency} from "../model/agency";
 
 @Injectable()

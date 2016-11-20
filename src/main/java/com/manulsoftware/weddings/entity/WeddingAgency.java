@@ -1,13 +1,21 @@
 package com.manulsoftware.weddings.entity;
 
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "wedding_agency")
@@ -28,6 +36,8 @@ public class WeddingAgency {
 	private String seolink;
 	
 	private String email;
+
+	private String website;
 	
 	private String phone;
 	
@@ -113,6 +123,14 @@ public class WeddingAgency {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getWebsite() {
+		return website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
 	}
 
 	public String getPhone() {

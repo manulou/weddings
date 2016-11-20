@@ -14,11 +14,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var agencyDetails_1 = require('./components/agencyDetails');
-var agencies_1 = require('./components/agencies');
+var packageSearch_1 = require('./components/packageSearch');
 var secureAgencies_1 = require("./components/secureAgencies");
 var editAgency_1 = require("./components/editAgency");
 var routes = [
-    { path: '', component: agencies_1.AgenciesComponent },
+    { path: '', component: packageSearch_1.PackageSearchComponent },
     { path: 'agency/:seolink', component: agencyDetails_1.AgencyDetailsComponent },
     { path: 'secure', component: secureAgencies_1.SecureAgenciesComponent },
     { path: 'secure/agency/:id', component: editAgency_1.EditAgencyComponent },

@@ -26,6 +26,10 @@ var CountriesService = (function () {
             return _this._http.get(_this.actionUrl + 'getCountries')
                 .map(function (response) { return response.json(); }).catch(_this.handleError);
         };
+        this.getAllForFilter = function () {
+            return _this._http.get(_this.actionUrl + 'getCountriesForFilter')
+                .map(function (response) { return response.json(); }).catch(_this.handleError);
+        };
         this.actionUrl = configuration.ServerWithApiUrl;
         this.headers = new http_1.Headers();
         this.headers.append('Content-Type', 'application/json');

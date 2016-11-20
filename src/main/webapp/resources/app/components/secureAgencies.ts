@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AgenciesService} from "../services/agenciesService";
 import {AgenciesList} from "../model/agenciesList";
 import {Configuration} from "../app.constants";
-import {PageInfo} from "../model/pageInfo";
+import {PageInfo} from "../model/helper/pageInfo";
 import {Agency} from "../model/agency";
 @Component({
     selector: 'agencies',

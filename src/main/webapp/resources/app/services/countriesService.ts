@@ -28,6 +28,10 @@ export class CountriesService {
             .map((response: Response) => <Country[]>response.json()).catch(this.handleError);
     }
 
+    public getAllForFilter = (): Observable<Country[]> => {
+        return this._http.get(this.actionUrl + 'getCountriesForFilter')
+            .map((response: Response) => <Country[]>response.json()).catch(this.handleError);
+    }
 
     private handleError(error: Response) {
         console.error(error);

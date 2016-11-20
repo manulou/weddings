@@ -37,7 +37,12 @@ function initMasonry(categories) {
 
 function togglePackage(tr) {
     var categoriesDiv = $(tr).parent().parent().parent().next();
-    categoriesDiv.toggle();
+    if (categoriesDiv.hasClass('hidden')) {
+        categoriesDiv.removeClass('hidden');
+    } else {
+        categoriesDiv.addClass('hidden');
+    }
+
     initMasonry(categoriesDiv.find('.categories'));
     return false;
 }

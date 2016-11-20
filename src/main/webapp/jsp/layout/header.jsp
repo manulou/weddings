@@ -2,7 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
-<html lang="en" data-ng-app="weddingsApp">
+<html lang="en">
     <head>
         <base href="/">
         <meta charset="utf-8">

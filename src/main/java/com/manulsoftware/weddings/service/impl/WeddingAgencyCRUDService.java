@@ -19,6 +19,8 @@ public interface WeddingAgencyCRUDService extends PagingAndSortingRepository<Wed
 	Page<WeddingAgency> findByDeletedAndVisible(boolean deleted, boolean visible, Pageable pageable);
 
 	Page<WeddingAgency> findByDeleted(boolean deleted, Pageable pageable);
+
+	Integer countByCountryIdAndDeletedAndVisible(final Short countryId, final boolean deleted, final boolean visited);
 	
 	WeddingAgency findOne(final Integer id);
 

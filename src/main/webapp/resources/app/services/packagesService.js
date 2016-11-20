@@ -21,11 +21,24 @@ var PackagesService = (function () {
     function PackagesService(_http, configuration) {
         var _this = this;
         this._http = _http;
-        this.configuration = configuration;
         this.delete = function (id) {
-            return _this._http.delete(_this.actionUrl + 'deletePackage/' + id).catch(_this.handleError);
+            return _this._http.delete(_this.configuration.SecureServerWithApiUrl + 'deletePackage/' + id).catch(_this.handleError);
         };
-        this.actionUrl = configuration.SecureServerWithApiUrl;
+        this.findPackages = function (pageInfo, searchFilter) {
+            var params = new http_1.URLSearchParams();
+            params.set('page', pageInfo.page.toString());
+            params.set('sortField', pageInfo.sortField);
+            params.set('sortDirection', pageInfo.sortDirection);
+            if (searchFilter.countryId) {
+                params.set('countryId', searchFilter.countryId.toString());
+            }
+            if (searchFilter.maxPrice) {
+                params.set('maxPrice', searchFilter.maxPrice.toString());
+            }
+            return _this._http.get(_this.configuration.ServerWithApiUrl + 'searchPackages', { search: params })
+                .map(function (response) { return response.json(); }).catch(_this.handleError);
+        };
+        this.configuration = configuration;
         this.headers = new http_1.Headers();
         this.headers.append('Content-Type', 'application/json');
         this.headers.append('Accept', 'application/json');

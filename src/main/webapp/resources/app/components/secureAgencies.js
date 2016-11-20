@@ -12,7 +12,7 @@ var core_1 = require('@angular/core');
 var agenciesService_1 = require("../services/agenciesService");
 var agenciesList_1 = require("../model/agenciesList");
 var app_constants_1 = require("../app.constants");
-var pageInfo_1 = require("../model/pageInfo");
+var pageInfo_1 = require("../model/helper/pageInfo");
 var SecureAgenciesComponent = (function () {
     function SecureAgenciesComponent(agenciesService) {
         this.agenciesService = agenciesService;

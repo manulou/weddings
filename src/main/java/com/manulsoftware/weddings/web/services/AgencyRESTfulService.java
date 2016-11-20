@@ -7,7 +7,7 @@ import com.manulsoftware.weddings.service.AttributeService;
 import com.manulsoftware.weddings.service.CategoryService;
 import com.manulsoftware.weddings.service.PaginatedList;
 import com.manulsoftware.weddings.service.WeddingAgencyService;
-import com.manulsoftware.weddings.service.WeddingPackageService;
+import com.manulsoftware.weddings.service.impl.WeddingPackageCRUDService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ public class AgencyRESTfulService {
 	WeddingAgencyService weddingAgencyService;
 
 	@Autowired
-	WeddingPackageService weddingPackageService;
+	WeddingPackageCRUDService weddingPackageService;
 
 	@Autowired
 	CategoryService categoryService;

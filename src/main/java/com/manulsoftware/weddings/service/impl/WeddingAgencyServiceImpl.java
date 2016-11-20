@@ -3,9 +3,9 @@ package com.manulsoftware.weddings.service.impl;
 import com.manulsoftware.weddings.entity.PackageAttribute;
 import com.manulsoftware.weddings.entity.WeddingAgency;
 import com.manulsoftware.weddings.entity.WeddingPackage;
+import com.manulsoftware.weddings.service.CountryService;
 import com.manulsoftware.weddings.service.PackageAttributeService;
 import com.manulsoftware.weddings.service.WeddingAgencyService;
-import com.manulsoftware.weddings.service.WeddingPackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -24,10 +24,13 @@ public class WeddingAgencyServiceImpl implements WeddingAgencyService {
 	private WeddingAgencyCRUDService weddingAgencyCRUDService;
 
 	@Autowired
-	private WeddingPackageService weddingPackageService;
+	private WeddingPackageCRUDService weddingPackageService;
 
 	@Autowired
 	private PackageAttributeService packageAttributeService;
+
+	@Autowired
+	private CountryService countryService;
 	
 	@Override
 	public Integer save(final WeddingAgency agency) {
@@ -56,6 +59,12 @@ public class WeddingAgencyServiceImpl implements WeddingAgencyService {
 				}
 			}
 		}
+
+		final Integer agencyCount = weddingAgencyCRUDService.countByCountryIdAndDeletedAndVisible(agency.getCountry()
+				.getId(), false, true);
+
+		agency.getCountry().setHasAgencies(agencyCount > 0 || agency.isVisible());
+		countryService.save(agency.getCountry());
 
 		return id;
 	}
@@ -91,6 +100,12 @@ public class WeddingAgencyServiceImpl implements WeddingAgencyService {
 		final WeddingAgency agency = findOne(id);
 		agency.setDeleted(true);
 		weddingAgencyCRUDService.save(agency);
+
+		final Integer agencyCount = weddingAgencyCRUDService.countByCountryIdAndDeletedAndVisible(
+				agency.getCountry().getId(), false, true);
+
+		agency.getCountry().setHasAgencies(agencyCount > 0);
+		countryService.save(agency.getCountry());
 	}
 	
 	private static String toPrettyURL(String string) {

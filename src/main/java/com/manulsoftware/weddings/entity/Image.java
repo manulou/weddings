@@ -19,10 +19,8 @@ public class Image {
 	@Column(name = "agency_id")
 	private Integer agencyId;
 	
-	@Column(name = "name")
 	private String name;
 	
-	@Column(name = "thumbnail")
 	private boolean thumbnail;
 	
 	@Column(name = "related_image_id")
