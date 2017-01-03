@@ -40,7 +40,9 @@ public class WeddingPackageServiceImpl implements WeddingPackageService {
 
 	private static Specification<WeddingPackage> filterBuilder(final SearchFilter searchFilter) {
 		final List<Specification<WeddingPackage>> filters = new ArrayList<>();
-		if (searchFilter.getCountryId() != null) {
+		filters.add(visible());
+		filters.add(agencyVisible());
+		if (searchFilter.getCountryId() != null && searchFilter.getCountryId() > 0) {
 			filters.add(countryId(searchFilter.getCountryId()));
 		}
 		if (searchFilter.getMaxPrice() != null) {
@@ -54,6 +56,26 @@ public class WeddingPackageServiceImpl implements WeddingPackageService {
 			return filter;
 		}
 		return null;
+	}
+
+	public static Specification<WeddingPackage> visible() {
+		return new Specification<WeddingPackage>() {
+			@Override
+			public Predicate toPredicate(Root<WeddingPackage> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
+				return builder.equal(root.get("visible"), true);
+			}
+		};
+	}
+
+	public static Specification<WeddingPackage> agencyVisible() {
+		return new Specification<WeddingPackage>() {
+			@Override
+			public Predicate toPredicate(Root<WeddingPackage> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
+				Join<WeddingPackage, WeddingAgency> join = root.join("weddingAgency", JoinType.LEFT);
+
+				return builder.equal(join.get("visible"), true);
+			}
+		};
 	}
 
 	public static Specification<WeddingPackage> countryId(final Short countryId) {

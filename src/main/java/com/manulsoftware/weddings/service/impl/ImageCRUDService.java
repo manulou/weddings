@@ -14,6 +14,14 @@ public interface ImageCRUDService extends Repository<Image, Integer> {
 	public void delete(Image image);
 	
 	public Image findOne(Integer id);
+
+	public List<Image> findByAgencyIdAndSpread(Integer agencyId, boolean spread);
+
+	public List<Image> findByAgencyIdAndList(Integer agencyId, boolean list);
+
+	public List<Image> findByAgencyIdAndSpreadAndThumbnail(Integer agencyId, boolean spread, boolean thumbnail);
+
+	public List<Image> findByAgencyIdAndListAndThumbnail(Integer agencyId, boolean list, boolean thumbnail);
 	
 	public List<Image> findByAgencyIdAndThumbnail(Integer agencyId, boolean thumbnail);
 }

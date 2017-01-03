@@ -32,10 +32,20 @@ public class WeddingAgency {
 	@OneToOne()
 	@JoinColumn(name = "country_id")
 	private Country country;
-	
+
+	private String city;
+
 	private String seolink;
 	
 	private String email;
+
+	private String description;
+
+	private String facebook;
+
+	private String twitter;
+
+	private String instagram;
 
 	private String website;
 	
@@ -147,5 +157,45 @@ public class WeddingAgency {
 
 	public void setVisible(boolean visible) {
 		this.visible = visible;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getFacebook() {
+		return facebook;
+	}
+
+	public void setFacebook(String facebook) {
+		this.facebook = facebook;
+	}
+
+	public String getTwitter() {
+		return twitter;
+	}
+
+	public void setTwitter(String twitter) {
+		this.twitter = twitter;
+	}
+
+	public String getInstagram() {
+		return instagram;
+	}
+
+	public void setInstagram(String instagram) {
+		this.instagram = instagram;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 }

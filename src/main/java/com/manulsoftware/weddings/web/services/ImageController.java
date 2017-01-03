@@ -1,22 +1,18 @@
 package com.manulsoftware.weddings.web.services;
 
-import java.io.ByteArrayInputStream;
-import java.util.List;
-
-import javax.servlet.http.HttpSession;
-
+import com.manulsoftware.weddings.entity.Image;
+import com.manulsoftware.weddings.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.manulsoftware.weddings.entity.Image;
-import com.manulsoftware.weddings.service.ImageService;
+import java.io.ByteArrayInputStream;
+import java.util.List;
 
 @Controller
 public class ImageController {
@@ -31,8 +27,35 @@ public class ImageController {
 	}
 	
 	@RequestMapping("/image/{id}")
-	public ResponseEntity<InputStreamResource> loadImage(@PathVariable Integer id, ModelMap model, HttpSession session) {
-		final Image image = imageService.findOne(id);
+	public ResponseEntity loadImage(@PathVariable Integer id) {
+		return imageResponse(imageService.findOne(id));
+	}
+
+	@RequestMapping("/agency/{agencyId}/spread")
+	@ResponseBody
+	public ResponseEntity spread(@PathVariable Integer agencyId) {
+		return imageResponse(imageService.getSpread(agencyId));
+	}
+
+	@RequestMapping("/agency/{agencyId}/list")
+	@ResponseBody
+	public ResponseEntity list(@PathVariable Integer agencyId) {
+		return imageResponse(imageService.getList(agencyId));
+	}
+
+	private ResponseEntity imageResponse(final Image image) {
+		if (image == null) {
+			return notFound();
+		} else {
+			return imageEntity(image);
+		}
+	}
+
+	private ResponseEntity notFound() {
+		return ResponseEntity.notFound().build();
+	}
+
+	private ResponseEntity<InputStreamResource> imageEntity(final Image image) {
 		return ResponseEntity
 				.ok()
 				.contentLength(image.getContent().length)

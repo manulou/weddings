@@ -22,6 +22,10 @@ public class Image {
 	private String name;
 	
 	private boolean thumbnail;
+
+	private boolean spread;
+
+	private boolean list;
 	
 	@Column(name = "related_image_id")
 	private Integer relatedImageId;
@@ -96,5 +100,21 @@ public class Image {
 
 	public void setContentType(String contentType) {
 		this.contentType = contentType;
+	}
+
+	public boolean isSpread() {
+		return spread;
+	}
+
+	public void setSpread(boolean spread) {
+		this.spread = spread;
+	}
+
+	public boolean isList() {
+		return list;
+	}
+
+	public void setList(boolean list) {
+		this.list = list;
 	}
 }

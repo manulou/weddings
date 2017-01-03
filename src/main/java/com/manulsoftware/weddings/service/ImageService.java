@@ -13,6 +13,14 @@ public interface ImageService {
 	void delete(final Image image);
 	
 	Image findOne(Integer id);
+
+	void setSpread(Integer id);
+
+	void setList(Integer id);
 	
 	List<Image> findByAgencyId(Integer agencyId);
+
+	Image getSpread(Integer agencyId);
+
+	Image getList(Integer agencyId);
 }

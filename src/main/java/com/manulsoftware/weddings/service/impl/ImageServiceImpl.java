@@ -1,19 +1,17 @@
 package com.manulsoftware.weddings.service.impl;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.List;
-
+import com.manulsoftware.weddings.entity.Image;
+import com.manulsoftware.weddings.service.ImageService;
 import net.coobird.thumbnailator.Thumbnails;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.manulsoftware.weddings.entity.Image;
-import com.manulsoftware.weddings.service.ImageService;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.List;
 
 @Service
 public class ImageServiceImpl implements ImageService {
@@ -40,7 +38,7 @@ public class ImageServiceImpl implements ImageService {
 	private Image generateThumbnail(final Image image) {
 		final ByteArrayOutputStream bos = new ByteArrayOutputStream();
 		try {
-			Thumbnails.of(new ByteArrayInputStream(image.getContent())).size(100, 100).toOutputStream(bos);
+			Thumbnails.of(new ByteArrayInputStream(image.getContent())).size(260, 260).toOutputStream(bos);
 			final Image thumbnail = new Image();
 			thumbnail.setAgencyId(image.getAgencyId());
 			thumbnail.setContent(bos.toByteArray());
@@ -48,12 +46,13 @@ public class ImageServiceImpl implements ImageService {
 			thumbnail.setRelatedImageId(image.getId());
 			thumbnail.setContentType(image.getContentType());
 			thumbnail.setThumbnail(true);
+			thumbnail.setList(false);
+			thumbnail.setSpread(false);
 			return thumbnail;
 		} catch (IOException e) {
 			logger.error("Error generating thumbnail", e);
 			return null;
 		}
-		
 	}
 	
 	@Override
@@ -77,5 +76,45 @@ public class ImageServiceImpl implements ImageService {
 			related.setId(image.getRelatedImageId());
 			imageCRUDService.delete(related);
 		}
+	}
+
+	@Override
+	public void setSpread(Integer id) {
+		final Image thumbnail = findOne(id);
+		final Image image = findOne(thumbnail.getRelatedImageId());
+		final List<Image> existingSpreadImages = imageCRUDService.findByAgencyIdAndSpread(image.getAgencyId(), true);
+		if (existingSpreadImages != null && existingSpreadImages.size() > 0) {
+			existingSpreadImages.stream().forEach(img -> { img.setSpread(false); imageCRUDService.save(img); });
+		}
+		thumbnail.setSpread(true);
+		image.setSpread(true);
+		imageCRUDService.save(thumbnail);
+		imageCRUDService.save(image);
+	}
+
+	@Override
+	public void setList(Integer id) {
+		final Image thumbnail = findOne(id);
+		final Image image = findOne(thumbnail.getRelatedImageId());
+		final List<Image> existingListImages = imageCRUDService.findByAgencyIdAndList(image.getAgencyId(), true);
+		if (existingListImages != null && existingListImages.size() > 0) {
+			existingListImages.stream().forEach(img -> { img.setList(false); imageCRUDService.save(img); });
+		}
+		thumbnail.setList(true);
+		image.setList(true);
+		imageCRUDService.save(thumbnail);
+		imageCRUDService.save(image);
+	}
+
+	@Override
+	public Image getSpread(Integer agencyId) {
+		final List<Image> existingSpreadImages = imageCRUDService.findByAgencyIdAndSpreadAndThumbnail(agencyId, true, false);
+		return existingSpreadImages != null && existingSpreadImages.size() > 0 ? existingSpreadImages.get(0) : null;
+	}
+
+	@Override
+	public Image getList(Integer agencyId) {
+		final List<Image> existingListImages = imageCRUDService.findByAgencyIdAndListAndThumbnail(agencyId, true, false);
+		return existingListImages != null && existingListImages.size() > 0 ? existingListImages.get(0) : null;
 	}
 }

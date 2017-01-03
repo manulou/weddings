@@ -24,6 +24,8 @@ public class WeddingPackage {
 
     private String name;
 
+    private String description;
+
     private BigDecimal price;
 
     private boolean visible;
@@ -78,5 +80,13 @@ public class WeddingPackage {
 
     public void setVisible(boolean visible) {
         this.visible = visible;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
