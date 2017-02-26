@@ -30,6 +30,11 @@ public class WeddingPackageServiceImpl implements WeddingPackageService {
 	private WeddingPackageCRUDService weddingPackageService;
 
 	@Override
+	public List<WeddingPackage> getMostRecentPackages() {
+		return weddingPackageService.findFirst10ByVisibleOrderByCreatedDesc(true);
+	}
+
+	@Override
 	public Page<WeddingPackage> searchPackages(SearchFilter searchFilter) {
 		final PageRequest pageRequest = new PageRequest(searchFilter
 				.getPage(), 20, Sort.Direction.fromString(searchFilter.getSortDirection()), searchFilter.getSortField());

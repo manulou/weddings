@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -33,6 +34,8 @@ public class WeddingPackage {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "weddingPackage")
     @JsonManagedReference
     private List<PackageAttribute> attributes;
+
+    private Date created;
 
     public Integer getId() {
         return id;
@@ -88,5 +91,13 @@ public class WeddingPackage {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
     }
 }

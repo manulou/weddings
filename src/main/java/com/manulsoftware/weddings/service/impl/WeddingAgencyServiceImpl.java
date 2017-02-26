@@ -1,6 +1,5 @@
 package com.manulsoftware.weddings.service.impl;
 
-import com.manulsoftware.weddings.entity.PackageAttribute;
 import com.manulsoftware.weddings.entity.WeddingAgency;
 import com.manulsoftware.weddings.entity.WeddingPackage;
 import com.manulsoftware.weddings.service.CountryService;
@@ -43,21 +42,35 @@ public class WeddingAgencyServiceImpl implements WeddingAgencyService {
 		
 		final Integer id = weddingAgencyCRUDService.save(agency).getId();
 
-		weddingPackageService.deleteByWeddingAgency(agency);
-
+		final List<WeddingPackage> existingPackages = weddingPackageService.findByWeddingAgency(agency);
 		if (agency.getPackages() != null) {
-			for (WeddingPackage weddingPackage : agency.getPackages()) {
+			agency.getPackages().stream()
+					.filter(pkg -> pkg.getId() == null)
+					.forEach(pkg -> pkg.setCreated(new Date()));
+			agency.getPackages().stream()
+					.filter(weddingPackage -> weddingPackage.getId() != null)
+					.forEach(pkg -> pkg.setCreated(
+							existingPackages.stream()
+									.filter(existing -> existing.getId().equals(pkg.getId()))
+									.map(existing -> existing.getCreated())
+									.findFirst().get()));
+
+			weddingPackageService.deleteByWeddingAgency(agency);
+
+			agency.getPackages().stream().forEach(weddingPackage -> {
 				weddingPackage.setId(null);
 				weddingPackage.setWeddingAgency(agency);
 				weddingPackageService.save(weddingPackage);
 				if (weddingPackage.getAttributes() != null) {
-					for (PackageAttribute packageAttribute : weddingPackage.getAttributes()) {
+					weddingPackage.getAttributes().stream().forEach(packageAttribute -> {
 						packageAttribute.setId(null);
 						packageAttribute.setWeddingPackage(weddingPackage);
 						packageAttributeService.save(packageAttribute);
-					}
+					});
 				}
-			}
+			});
+		} else {
+			weddingPackageService.deleteByWeddingAgency(agency);
 		}
 
 		final Integer agencyCount = weddingAgencyCRUDService.countByCountryIdAndDeletedAndVisible(agency.getCountry()

@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/.editorconfig" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../../wedding-ui/package.json" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/app.module.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/components/editAgency.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/components/frontpage.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/components/packageSearch.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/components/selectRedraw.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/html/agencyDetails.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/html/editAgency.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/html/frontpage.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/html/navigation.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/html/packageSearch.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/html/secureAgencies.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/model/agency.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/model/helper/searchFilter.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/model/helper/searchState.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/model/package.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/services/agenciesService.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/services/imagesService.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/services/notificationService.ts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/assets/js/scripts.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/assets/js/superlist.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../../wedding-ui/src/main.ts" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/system-config.ts" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../../wedding-ui/src/tsconfig.json" charset="UTF-8" />
   </component>
 </project>

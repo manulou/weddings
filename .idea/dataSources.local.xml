@@ -2,6 +2,10 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="Weddings" uuid="6811a4a3-8336-416b-af98-667275026d40">
+      <database-info product="PostgreSQL" version="9.4.3" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
       <user-name>manul</user-name>
     </data-source>

@@ -21,6 +21,8 @@ public interface WeddingPackageCRUDService extends Repository<WeddingPackage, In
 
     List<WeddingPackage> findByWeddingAgency(final WeddingAgency agency);
 
+    List<WeddingPackage> findFirst10ByVisibleOrderByCreatedDesc(final boolean visible);
+
     @Transactional
     Long deleteByWeddingAgency(final WeddingAgency agency);
 

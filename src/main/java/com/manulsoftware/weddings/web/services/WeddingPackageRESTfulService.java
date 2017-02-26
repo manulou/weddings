@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Controller
 public class WeddingPackageRESTfulService {
@@ -34,11 +35,24 @@ public class WeddingPackageRESTfulService {
 				.getSortDirection()));
 	}
 
+	@RequestMapping(value = "/mostRecentPackages", method = RequestMethod.GET)
+	@ResponseBody
+	public String mostRecentPackages() {
+		return new Gson().toJson(processPackages(weddingPackageService.getMostRecentPackages()));
+	}
+
 	private String serializeToJson(final PaginatedList<WeddingPackage> page) {
-		page.getList().stream().forEach(weddingPackage -> {
+		page.setList(processPackages(page.getList()));
+		return new Gson().toJson(page);
+	}
+
+	private List<WeddingPackage> processPackages(final List<WeddingPackage> packages) {
+		if (packages != null) {
+			packages.stream().forEach(weddingPackage -> {
 				weddingPackage.setAttributes(null);
 				weddingPackage.getWeddingAgency().setPackages(null);
-		});
-		return new Gson().toJson(page);
+			});
+		}
+		return packages;
 	}
 }
