@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/manulsoftware/weddings/web/config/AuthenticationConfig.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../../wedding-ui/.editorconfig" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../../wedding-ui/package.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/app.constants.ts" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/app.module.ts" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/app.routes.ts" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../../wedding-ui/src/app/components/editAgency.ts" charset="UTF-8" />
