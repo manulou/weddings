@@ -14,6 +14,8 @@ public interface AttributeService extends Repository<Attribute, Integer> {
 
     List<Attribute> findAllByOrderByName();
 
+    List<Attribute> findByCategoryIdOrderByName(final Integer categoryId);
+
 //    @PreAuthorize("hasRole('ADMIN')")
     Attribute save(final Attribute attribute);
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -66,6 +67,16 @@ public class AgencyRESTfulService {
 	@ResponseBody
 	public List<Attribute> getAttributes() {
 		return attributeService.findAllByOrderByName();
+	}
+
+	@RequestMapping("/getAttributesByCategoryName")
+	@ResponseBody
+	public List<Attribute> getAttributesByCategoryName(@RequestParam final String name) {
+		final List<Category> categories = categoryService.findByName(name);
+		if (categories != null && categories.size() > 0) {
+			return attributeService.findByCategoryIdOrderByName(categories.get(0).getId());
+		}
+		return Collections.EMPTY_LIST;
 	}
 	
 	@RequestMapping("/searchAgencies")

@@ -27,9 +27,11 @@ public class WeddingPackageRESTfulService {
 			@RequestParam Integer page,
 			@RequestParam String sortField,
 			@RequestParam String sortDirection,
+			@RequestParam(required = false) String keyword,
 			@RequestParam(required = false) Short countryId,
+			@RequestParam(required = false) Integer location,
 			@RequestParam(required = false) BigDecimal maxPrice) {
-		final SearchFilter searchFilter = new SearchFilter(page, sortField, sortDirection, countryId, maxPrice);
+		final SearchFilter searchFilter = new SearchFilter(page, sortField, sortDirection, keyword, countryId, location, maxPrice);
 		final Page<WeddingPackage> p = weddingPackageService.searchPackages(searchFilter);
 		return serializeToJson(new PaginatedList<WeddingPackage>(p, searchFilter.getSortField(), searchFilter
 				.getSortDirection()));

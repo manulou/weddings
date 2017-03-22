@@ -37,6 +37,9 @@ public class WeddingPackage {
 
     private Date created;
 
+    @Column(name = "location_id")
+    private Integer locationId;
+
     public Integer getId() {
         return id;
     }
@@ -99,5 +102,13 @@ public class WeddingPackage {
 
     public void setCreated(Date created) {
         this.created = created;
+    }
+
+    public Integer getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(Integer locationId) {
+        this.locationId = locationId;
     }
 }

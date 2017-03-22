@@ -14,6 +14,8 @@ public interface CategoryService extends Repository<Category, Integer> {
 
     List<Category> findAllByOrderByPriority();
 
+    List<Category> findByName(final String name);
+
 //    @PreAuthorize("hasRole('ADMIN')")
     Category save(final Category category);
 }

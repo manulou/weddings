@@ -41,6 +41,13 @@ public class WeddingAgencyServiceImpl implements WeddingAgencyService {
 		}
 		
 		final Integer id = weddingAgencyCRUDService.save(agency).getId();
+		agency.getPackages().stream()
+				.forEach(weddingPackage ->
+					weddingPackage.setLocationId(
+							weddingPackage.getAttributes().stream()
+								.filter(packageAttribute -> "Location".equals(packageAttribute.getCategory().getName()))
+								.map(packageAttribute -> packageAttribute.getAttribute().getId())
+								.findFirst().get()));
 
 		final List<WeddingPackage> existingPackages = weddingPackageService.findByWeddingAgency(agency);
 		if (agency.getPackages() != null) {

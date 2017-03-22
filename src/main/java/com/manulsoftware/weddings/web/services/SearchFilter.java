@@ -8,14 +8,24 @@ public class SearchFilter {
   private String sortField;
   private String sortDirection;
 
+  private String keyword;
   private Short countryId;
+  private Integer location;
   private BigDecimal maxPrice;
 
-  public SearchFilter(Integer page, String sortField, String sortDirection, Short countryId, BigDecimal maxPrice) {
+  public SearchFilter(Integer page,
+                      String sortField,
+                      String sortDirection,
+                      String keyword,
+                      Short countryId,
+                      Integer location,
+                      BigDecimal maxPrice) {
     this.page = page;
     this.sortField = sortField;
     this.sortDirection = sortDirection;
+    this.keyword = keyword;
     this.countryId = countryId;
+    this.location = location;
     this.maxPrice = maxPrice;
   }
 
@@ -57,5 +67,21 @@ public class SearchFilter {
 
   public void setMaxPrice(BigDecimal maxPrice) {
     this.maxPrice = maxPrice;
+  }
+
+  public String getKeyword() {
+    return keyword;
+  }
+
+  public void setKeyword(String keyword) {
+    this.keyword = keyword;
+  }
+
+  public Integer getLocation() {
+    return location;
+  }
+
+  public void setLocation(Integer location) {
+    this.location = location;
   }
 }

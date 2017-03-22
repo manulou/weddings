@@ -13,12 +13,8 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.domain.Specifications;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.JoinType;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +49,21 @@ public class WeddingPackageServiceImpl implements WeddingPackageService {
 		if (searchFilter.getMaxPrice() != null) {
 			filters.add(maxPrice(searchFilter.getMaxPrice()));
 		}
+		if (searchFilter.getKeyword() != null) {
+			final String keyword = "%" + searchFilter.getKeyword().toUpperCase() + "%";
+			filters.add(
+					Specifications.where(
+							keywordInName(keyword))
+								.or(
+							keywordInAgencyName(keyword))
+								.or(
+							keywordInAgencyDescription(keyword))
+								.or(
+							keywordInDescription(keyword)));
+		}
+		if (searchFilter.getLocation() != null) {
+			filters.add(location(searchFilter.getLocation()));
+		}
 		if (filters.size() > 0) {
 			Specifications<WeddingPackage> filter = Specifications.where(filters.get(0));
 			for (int i = 1; i < filters.size(); i++) {
@@ -64,43 +75,55 @@ public class WeddingPackageServiceImpl implements WeddingPackageService {
 	}
 
 	public static Specification<WeddingPackage> visible() {
-		return new Specification<WeddingPackage>() {
-			@Override
-			public Predicate toPredicate(Root<WeddingPackage> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
-				return builder.equal(root.get("visible"), true);
-			}
-		};
+		return (root, query, builder) -> builder.equal(root.get("visible"), true);
 	}
 
 	public static Specification<WeddingPackage> agencyVisible() {
-		return new Specification<WeddingPackage>() {
-			@Override
-			public Predicate toPredicate(Root<WeddingPackage> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
-				Join<WeddingPackage, WeddingAgency> join = root.join("weddingAgency", JoinType.LEFT);
+		return (root, query, builder) -> {
+            Join<WeddingPackage, WeddingAgency> join = root.join("weddingAgency", JoinType.LEFT);
 
-				return builder.equal(join.get("visible"), true);
-			}
-		};
+            return builder.equal(join.get("visible"), true);
+        };
 	}
 
 	public static Specification<WeddingPackage> countryId(final Short countryId) {
-		return new Specification<WeddingPackage>() {
-			@Override
-			public Predicate toPredicate(Root<WeddingPackage> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
-				Join<WeddingPackage, WeddingAgency> join = root.join("weddingAgency", JoinType.LEFT);
-				Join<WeddingAgency, Country> join2 = join.join("country", JoinType.LEFT);
+		return (root, query, builder) -> {
+            Join<WeddingPackage, WeddingAgency> join = root.join("weddingAgency", JoinType.LEFT);
+            Join<WeddingAgency, Country> join2 = join.join("country", JoinType.LEFT);
 
-				return builder.equal(join2.get("id"), countryId);
-			}
-		};
+            return builder.equal(join2.get("id"), countryId);
+        };
 	}
 
 	public static Specification<WeddingPackage> maxPrice(final BigDecimal maxPrice) {
-		return new Specification<WeddingPackage>() {
-			@Override
-			public Predicate toPredicate(Root<WeddingPackage> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
-				return builder.lessThanOrEqualTo(root.get("price"), maxPrice);
-			}
-		};
+		return (root, query, builder) -> builder.lessThanOrEqualTo(root.get("price"), maxPrice);
+	}
+
+	public static Specification<WeddingPackage> keywordInAgencyName(final String keyword) {
+		return (root, query, builder) -> {
+            Join<WeddingPackage, WeddingAgency> join = root.join("weddingAgency", JoinType.LEFT);
+
+            return builder.like(builder.upper(join.get("name")), keyword);
+        };
+	}
+
+	public static Specification<WeddingPackage> keywordInAgencyDescription(final String keyword) {
+		return (root, query, builder) -> {
+            Join<WeddingPackage, WeddingAgency> join = root.join("weddingAgency", JoinType.LEFT);
+
+            return builder.like(builder.upper(join.get("description")), keyword);
+        };
+	}
+
+	public static Specification<WeddingPackage> keywordInName(final String keyword) {
+		return (root, query, builder) -> builder.like(builder.upper(root.get("name")), keyword);
+	}
+
+	public static Specification<WeddingPackage> keywordInDescription(final String keyword) {
+		return (root, query, builder) -> builder.like(builder.upper(root.get("description")), keyword);
+	}
+
+	public static Specification<WeddingPackage> location(final Integer locationId) {
+		return (root, query, builder) -> builder.equal(root.get("locationId"), locationId);
 	}
 }
