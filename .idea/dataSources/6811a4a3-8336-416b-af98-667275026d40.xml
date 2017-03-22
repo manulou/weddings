@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Weddings">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.0">
+    <root id="1"/>
+    <database id="2" parent="1" name="weddingsearch">
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <Comment>standard public schema</Comment>
+      <IntrospectionTimestamp>2016-06-05.22:12:07.178</IntrospectionTimestamp>
+      <IntrospectionStateNumber>6276</IntrospectionStateNumber>
+      <Visible>1</Visible>
+    </schema>
+    <sequence id="4" parent="3" name="attribute_id_seq">
+      <ObjectId>139596</ObjectId>
+      <StateNumber>4762</StateNumber>
+    </sequence>
+    <sequence id="5" parent="3" name="category_id_seq">
+      <ObjectId>139587</ObjectId>
+      <StateNumber>4760</StateNumber>
+    </sequence>
+    <sequence id="6" parent="3" name="category_priority_seq">
+      <ObjectId>147779</ObjectId>
+      <StateNumber>4788</StateNumber>
+    </sequence>
+    <sequence id="7" parent="3" name="image_id_seq">
+      <ObjectId>16416</ObjectId>
+      <StateNumber>709</StateNumber>
+    </sequence>
+    <sequence id="8" parent="3" name="package_attribute_id_seq">
+      <ObjectId>139622</ObjectId>
+      <StateNumber>4764</StateNumber>
+    </sequence>
+    <sequence id="9" parent="3" name="user_id_seq">
+      <ObjectId>16408</ObjectId>
+      <StateNumber>708</StateNumber>
+    </sequence>
+    <sequence id="10" parent="3" name="wedding_agency_id_seq">
+      <ObjectId>16395</ObjectId>
+      <StateNumber>683</StateNumber>
+    </sequence>
+    <sequence id="11" parent="3" name="wedding_package_id_seq">
+      <ObjectId>139605</ObjectId>
+      <StateNumber>4763</StateNumber>
+    </sequence>
+    <table id="12" parent="3" name="attribute">
+      <ObjectId>139598</ObjectId>
+      <StateNumber>4825</StateNumber>
+    </table>
+    <table id="13" parent="3" name="category">
+      <ObjectId>139589</ObjectId>
+      <StateNumber>4788</StateNumber>
+    </table>
+    <table id="14" parent="3" name="country">
+      <ObjectId>16552</ObjectId>
+      <StateNumber>862</StateNumber>
+    </table>
+    <table id="15" parent="3" name="image">
+      <ObjectId>16418</ObjectId>
+      <StateNumber>747</StateNumber>
+    </table>
+    <table id="16" parent="3" name="package_attribute">
+      <ObjectId>139624</ObjectId>
+      <StateNumber>4825</StateNumber>
+    </table>
+    <table id="17" parent="3" name="user">
+      <ObjectId>16410</ObjectId>
+      <StateNumber>708</StateNumber>
+    </table>
+    <table id="18" parent="3" name="wedding_agency">
+      <ObjectId>16397</ObjectId>
+      <StateNumber>6273</StateNumber>
+    </table>
+    <table id="19" parent="3" name="wedding_package">
+      <ObjectId>139607</ObjectId>
+      <StateNumber>6276</StateNumber>
+    </table>
+    <column id="20" parent="12" name="id">
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>4762</StateNumber>
+      <DefaultExpression>nextval(&apos;attribute_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="21" parent="12" name="name">
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>4762</StateNumber>
+    </column>
+    <column id="22" parent="12" name="category_id">
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>4766</StateNumber>
+    </column>
+    <index id="23" parent="12" name="attribute_pkey">
+      <ObjectId>139603</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="24" parent="12" name="attribute_name_category_id_uindex">
+      <ObjectId>139645</ObjectId>
+      <ColNames>name
+category_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="25" parent="12" name="attribute_pkey">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>attribute_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="26" parent="12" name="attribute_category_id_fk">
+      <RefTableName>category</RefTableName>
+      <RefKeyName>category_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="27" parent="13" name="id">
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>4760</StateNumber>
+      <DefaultExpression>nextval(&apos;category_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="28" parent="13" name="name">
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>4760</StateNumber>
+    </column>
+    <column id="29" parent="13" name="priority">
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>4788</StateNumber>
+      <DefaultExpression>nextval(&apos;category_priority_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <index id="30" parent="13" name="category_pkey">
+      <ObjectId>139593</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="31" parent="13" name="category_name_uindex">
+      <ObjectId>139595</ObjectId>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="32" parent="13" name="category_pkey">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>category_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="33" parent="14" name="id">
+      <DataType>smallint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>859</StateNumber>
+    </column>
+    <column id="34" parent="14" name="code">
+      <DataType>varchar(2)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>859</StateNumber>
+    </column>
+    <column id="35" parent="14" name="name">
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>859</StateNumber>
+    </column>
+    <index id="36" parent="14" name="pk_country">
+      <ObjectId>16555</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="37" parent="14" name="pk_country">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>pk_country</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="38" parent="15" name="id">
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>709</StateNumber>
+      <DefaultExpression>nextval(&apos;image_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="39" parent="15" name="agency_id">
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>742</StateNumber>
+    </column>
+    <column id="40" parent="15" name="content">
+      <DataType>bytea|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>742</StateNumber>
+    </column>
+    <column id="41" parent="15" name="thumbnail">
+      <DataType>boolean|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>742</StateNumber>
+    </column>
+    <column id="42" parent="15" name="related_image_id">
+      <DataType>integer|0</DataType>
+      <StateNumber>742</StateNumber>
+    </column>
+    <column id="43" parent="15" name="name">
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>743</StateNumber>
+    </column>
+    <column id="44" parent="15" name="content_type">
+      <DataType>varchar(40)|0</DataType>
+      <StateNumber>747</StateNumber>
+    </column>
+    <index id="45" parent="15" name="pk_image">
+      <ObjectId>16425</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="46" parent="15" name="pk_image">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>pk_image</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="47" parent="15" name="fk_image_agency">
+      <ColNames>agency_id</ColNames>
+    </foreign-key>
+    <foreign-key id="48" parent="15" name="fk_image_related_image">
+      <ColNames>related_image_id</ColNames>
+      <RefTableName>image</RefTableName>
+      <RefKeyName>pk_image</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="49" parent="16" name="id">
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>4764</StateNumber>
+      <DefaultExpression>nextval(&apos;package_attribute_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="50" parent="16" name="category_id">
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>4764</StateNumber>
+    </column>
+    <column id="51" parent="16" name="wedding_package_id">
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>4764</StateNumber>
+    </column>
+    <column id="52" parent="16" name="attribute_id">
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>4764</StateNumber>
+    </column>
+    <index id="53" parent="16" name="package_attribute_pkey">
+      <ObjectId>139628</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="54" parent="16" name="package_attribute_pkey">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>package_attribute_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="55" parent="16" name="package_attribute_category_id_fk">
+      <ColNames>category_id</ColNames>
+      <RefTableName>category</RefTableName>
+      <RefKeyName>category_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="56" parent="16" name="package_attribute_wedding_package_id_fk">
+      <ColNames>wedding_package_id</ColNames>
+    </foreign-key>
+    <foreign-key id="57" parent="16" name="package_attribute_attribute_id_fk">
+      <ColNames>attribute_id</ColNames>
+      <RefTableName>attribute</RefTableName>
+      <RefKeyName>attribute_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="58" parent="17" name="username">
+      <DataType>varchar(20)|0</DataType>
+      <StateNumber>708</StateNumber>
+    </column>
+    <column id="59" parent="17" name="password">
+      <DataType>varchar(100)|0</DataType>
+      <StateNumber>708</StateNumber>
+    </column>
+    <column id="60" parent="17" name="id">
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>708</StateNumber>
+      <DefaultExpression>nextval(&apos;user_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <index id="61" parent="17" name="pk_user">
+      <ObjectId>16414</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="62" parent="17" name="pk_user">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>pk_user</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="63" parent="18" name="id">
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>683</StateNumber>
+      <DefaultExpression>nextval(&apos;wedding_agency_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="64" parent="18" name="name">
+      <DataType>varchar(60)|0</DataType>
+      <StateNumber>686</StateNumber>
+    </column>
+    <column id="65" parent="18" name="seolink">
+      <DataType>varchar(60)|0</DataType>
+      <StateNumber>710</StateNumber>
+    </column>
+    <column id="66" parent="18" name="created">
+      <DataType>timestamp with time zone|0</DataType>
+      <StateNumber>710</StateNumber>
+    </column>
+    <column id="67" parent="18" name="updated">
+      <DataType>timestamp with time zone|0</DataType>
+      <StateNumber>710</StateNumber>
+    </column>
+    <column id="68" parent="18" name="deleted">
+      <DataType>boolean|0</DataType>
+      <StateNumber>724</StateNumber>
+    </column>
+    <column id="69" parent="18" name="country_id">
+      <DataType>smallint|0</DataType>
+      <StateNumber>862</StateNumber>
+    </column>
+    <column id="70" parent="18" name="email">
+      <DataType>varchar(100)|0</DataType>
+      <StateNumber>862</StateNumber>
+    </column>
+    <column id="71" parent="18" name="phone">
+      <DataType>varchar(30)|0</DataType>
+      <StateNumber>862</StateNumber>
+    </column>
+    <column id="72" parent="18" name="visible">
+      <DataType>boolean|0</DataType>
+      <StateNumber>6273</StateNumber>
+      <DefaultExpression>false</DefaultExpression>
+    </column>
+    <index id="73" parent="18" name="pk_agency">
+      <ObjectId>16404</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="74" parent="18" name="pk_agency">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>pk_agency</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="75" parent="18" name="fk_country">
+      <ColNames>visible</ColNames>
+      <RefTableName>country</RefTableName>
+      <RefKeyName>pk_country</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="76" parent="19" name="id">
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>4763</StateNumber>
+      <DefaultExpression>nextval(&apos;wedding_package_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="77" parent="19" name="wedding_agency_id">
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>4763</StateNumber>
+    </column>
+    <column id="78" parent="19" name="name">
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>4763</StateNumber>
+    </column>
+    <column id="79" parent="19" name="price">
+      <DataType>numeric|0</DataType>
+      <StateNumber>4763</StateNumber>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="80" parent="19" name="visible">
+      <DataType>boolean|0</DataType>
+      <StateNumber>6276</StateNumber>
+      <DefaultExpression>false</DefaultExpression>
+    </column>
+    <index id="81" parent="19" name="wedding_package_pkey">
+      <ObjectId>139615</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="82" parent="19" name="wedding_package_pkey">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>wedding_package_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="83" parent="19" name="wedding_package_wedding_agency_id_fk">
+      <ColNames>wedding_agency_id</ColNames>
+      <RefTableName>wedding_agency</RefTableName>
+      <RefKeyName>pk_agency</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
