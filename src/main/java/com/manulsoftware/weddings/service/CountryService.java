@@ -12,7 +12,9 @@ public interface CountryService extends Repository<Country, Short> {
 	@SuppressWarnings("unchecked")
 	Country save(final Country agency);
 
-	public List<Country> findAll();
+	public Country findOne(final Short id);
+
+	public List<Country> findAllByOrderByName();
 
 	public List<Country> findByHasAgenciesOrderByName(final boolean hasAgencies);
 }

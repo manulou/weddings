@@ -59,7 +59,9 @@ public class WeddingPackageServiceImpl implements WeddingPackageService {
 								.or(
 							keywordInAgencyDescription(keyword))
 								.or(
-							keywordInDescription(keyword)));
+							keywordInDescription(keyword))
+								.or(
+							keywordInAttributes(keyword)));
 		}
 		if (searchFilter.getLocation() != null) {
 			filters.add(location(searchFilter.getLocation()));
@@ -121,6 +123,10 @@ public class WeddingPackageServiceImpl implements WeddingPackageService {
 
 	public static Specification<WeddingPackage> keywordInDescription(final String keyword) {
 		return (root, query, builder) -> builder.like(builder.upper(root.get("description")), keyword);
+	}
+
+	public static Specification<WeddingPackage> keywordInAttributes(final String keyword) {
+		return (root, query, builder) -> builder.like(builder.upper(root.get("allAttributes")), keyword);
 	}
 
 	public static Specification<WeddingPackage> location(final Integer locationId) {

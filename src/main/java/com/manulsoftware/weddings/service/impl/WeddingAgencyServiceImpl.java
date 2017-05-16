@@ -1,5 +1,6 @@
 package com.manulsoftware.weddings.service.impl;
 
+import com.manulsoftware.weddings.entity.Country;
 import com.manulsoftware.weddings.entity.WeddingAgency;
 import com.manulsoftware.weddings.entity.WeddingPackage;
 import com.manulsoftware.weddings.service.CountryService;
@@ -15,6 +16,7 @@ import java.text.Normalizer;
 import java.text.Normalizer.Form;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class WeddingAgencyServiceImpl implements WeddingAgencyService {
@@ -33,24 +35,30 @@ public class WeddingAgencyServiceImpl implements WeddingAgencyService {
 	
 	@Override
 	public Integer save(final WeddingAgency agency) {
+		final Country country = countryService.findOne(agency.getCountry().getId());
 		agency.setUpdated(new Date());
-		agency.setSeolink(toPrettyURL(agency.getName()));
+		setSeolink(agency, country);
 		
 		if (agency.getId() == null) {
 			agency.setCreated(agency.getUpdated());
 		}
 		
 		final Integer id = weddingAgencyCRUDService.save(agency).getId();
-		agency.getPackages().stream()
-				.forEach(weddingPackage ->
-					weddingPackage.setLocationId(
-							weddingPackage.getAttributes().stream()
-								.filter(packageAttribute -> "Location".equals(packageAttribute.getCategory().getName()))
-								.map(packageAttribute -> packageAttribute.getAttribute().getId())
-								.findFirst().get()));
 
 		final List<WeddingPackage> existingPackages = weddingPackageService.findByWeddingAgency(agency);
 		if (agency.getPackages() != null) {
+			agency.getPackages().stream()
+					.forEach(weddingPackage -> {
+							weddingPackage.setLocationId(
+									weddingPackage.getAttributes().stream()
+											.filter(packageAttribute -> "Location".equals(packageAttribute.getCategory().getName()))
+											.map(packageAttribute -> packageAttribute.getAttribute().getId())
+											.findFirst().orElse(null));
+						weddingPackage.setAllAttributes(
+								weddingPackage.getAttributes().stream()
+										.map(packageAttribute -> packageAttribute.getAttribute().getName())
+										.collect(Collectors.joining(" ")));
+					});
 			agency.getPackages().stream()
 					.filter(pkg -> pkg.getId() == null)
 					.forEach(pkg -> pkg.setCreated(new Date()));
@@ -83,10 +91,22 @@ public class WeddingAgencyServiceImpl implements WeddingAgencyService {
 		final Integer agencyCount = weddingAgencyCRUDService.countByCountryIdAndDeletedAndVisible(agency.getCountry()
 				.getId(), false, true);
 
-		agency.getCountry().setHasAgencies(agencyCount > 0 || agency.isVisible());
-		countryService.save(agency.getCountry());
+		country.setHasAgencies(agencyCount > 0 || agency.isVisible());
+		countryService.save(country);
 
 		return id;
+	}
+
+	private void setSeolink(final WeddingAgency agency, final Country country) {
+		String seolink = toPrettyURL(agency.getName());
+		for (int i = 1; weddingAgencyCRUDService.countBySeolink(seolink) > 0; i++) {
+			if (i == 1) {
+				seolink += "-" + toPrettyURL(country.getName());
+			} else {
+				seolink += "-" + i;
+			}
+		}
+		agency.setSeolink(seolink);
 	}
 	
 	@Override
@@ -112,7 +132,7 @@ public class WeddingAgencyServiceImpl implements WeddingAgencyService {
 
 	@Override
 	public WeddingAgency findOneBySeolink(String seolink) {
-		return weddingAgencyCRUDService.findOneBySeolink(seolink);
+		return weddingAgencyCRUDService.findOneBySeolinkAndVisibleAndDeleted(seolink, true, false);
 	}
 
 	@Override

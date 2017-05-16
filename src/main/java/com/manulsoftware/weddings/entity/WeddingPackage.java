@@ -40,6 +40,9 @@ public class WeddingPackage {
     @Column(name = "location_id")
     private Integer locationId;
 
+    @Column(name = "all_attributes")
+    private String allAttributes;
+
     public Integer getId() {
         return id;
     }
@@ -110,5 +113,13 @@ public class WeddingPackage {
 
     public void setLocationId(Integer locationId) {
         this.locationId = locationId;
+    }
+
+    public String getAllAttributes() {
+        return allAttributes;
+    }
+
+    public void setAllAttributes(String allAttributes) {
+        this.allAttributes = allAttributes;
     }
 }

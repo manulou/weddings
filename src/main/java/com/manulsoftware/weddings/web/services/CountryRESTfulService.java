@@ -18,8 +18,8 @@ public class CountryRESTfulService {
 	@RequestMapping("/getCountries")
 	@ResponseBody
 	public List<Country> getCountries() {
-		return countryService.findAll();
-	} //TODO: add sorting
+		return countryService.findAllByOrderByName();
+	}
 
 	@RequestMapping("/getCountriesForFilter")
 	@ResponseBody

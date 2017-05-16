@@ -24,5 +24,7 @@ public interface WeddingAgencyCRUDService extends PagingAndSortingRepository<Wed
 	
 	WeddingAgency findOne(final Integer id);
 
-	WeddingAgency findOneBySeolink(final String seolink);
+	WeddingAgency findOneBySeolinkAndVisibleAndDeleted(final String seolink, final boolean visible, final boolean deleted);
+
+	Long countBySeolink(final String seolink);
 }
